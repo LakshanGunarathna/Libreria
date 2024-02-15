@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.android.gms:play-services-code-scanner:16.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/332fefa7f625f38166ec43c6df3e7167/transformed/jetified-play-services-code-scanner-16.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/dc5a44eebef7ff9c9ca23b1e0649cfc5/transformed/jetified-play-services-code-scanner-16.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6101d9970ef8915aa9576db132989a33/transformed/jetified-play-services-code-scanner-16.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6101d9970ef8915aa9576db132989a33/transformed/jetified-play-services-code-scanner-16.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6101d9970ef8915aa9576db132989a33/transformed/jetified-play-services-code-scanner-16.1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-code-scanner/16.1.0/9d27d54a4aca3eee45eef98d53ec5b6a55776a4d/play-services-code-scanner-16.1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

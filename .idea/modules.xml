@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Libreria.iml" filepath="$PROJECT_DIR$/.idea/modules/Libreria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Libreria.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Libreria.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Libreria.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Libreria.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Libreria.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Libreria.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/internal/Libreria.internal.iml" filepath="$PROJECT_DIR$/.idea/modules/internal/Libreria.internal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.iml" filepath="$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.main.iml" filepath="$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/-1034923803/Libreria.internal.chooserx.unitTest.iml" />
+    </modules>
+  </component>
+</project>

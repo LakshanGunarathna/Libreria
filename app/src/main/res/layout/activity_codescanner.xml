@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+  <EditText
+      android:id="@+id/barcode_result_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="textPersonName"/>
+
+
+  <CheckBox
+      android:id="@+id/enable_auto_zoom"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:onClick="onEnableAutoZoomCheckboxClicked"
+      android:layout_marginTop="80dp"
+      android:text="@string/enable_auto_zoom" />
+  <Button
+      android:id="@+id/scan_barcode_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:onClick="onScanButtonClicked"
+      android:layout_marginTop="20dp"
+      android:text="@string/scan_barcode_button" />
+
+
+
+</LinearLayout>

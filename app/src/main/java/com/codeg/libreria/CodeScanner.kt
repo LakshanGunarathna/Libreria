@@ -1,9 +1,6 @@
-// CodeScanner.kt
-
 package com.codeg.libreria
 
 import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -72,6 +69,7 @@ class CodeScanner(private val activity: Activity) {
                 errorCallback?.invoke("Scanner cancelled.")
             }
     }
+
 
     private fun getSuccessfulMessage(barcode: Barcode): String {
         return String.format(

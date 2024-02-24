@@ -92,6 +92,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7d2266436ee4a326561d9274788e5bda/transformed/jetified-kotlin-stdlib-common-1.7.10.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/668798d509f124ed54075ddf4f915d94/transformed/jetified-annotations-13.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/af7c5d9d9cdb958f386994197675172a/transformed/constraintlayout-2.1.4-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/99cf862926eeb03b9464d31a35abecbc/transformed/jetified-core-3.4.1.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/fb614814a79edf272645f59285c39235/transformed/jetified-javax.inject-1.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2c74ec19cab3234087e53c7107938638/transformed/jetified-firebase-annotations-16.0.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/90a34a33a90df493e5685aaa5f63ab7c/transformed/jetified-image-1.0.0-beta1-api.jar</arg>
@@ -177,6 +178,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.zxing:core:3.4.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.firebase:firebase-encoders:16.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.google.firebase:firebase-annotations:16.0.0" level="project" />

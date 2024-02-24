@@ -13,14 +13,14 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    /*fun LoginCheck(view: View) {
+    fun LoginCheck(view: View) {
 
         val username: EditText = findViewById(R.id.editTxtUserName)
         val password: EditText = findViewById(R.id.editTxtPassword)
 
         if (username.text.toString() == "lk" &&
             password.text.toString() == "1") {
-            val gotoNextScreen = Intent(applicationContext,CodeScannerActivity::class.java)
+            val gotoNextScreen = Intent(applicationContext,AddBookActivity::class.java)
             startActivity(gotoNextScreen)
         } else {
             showToast("Login Error!!!")
@@ -29,6 +29,6 @@ class LoginActivity : AppCompatActivity() {
 
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }*/
+    }
 
 }

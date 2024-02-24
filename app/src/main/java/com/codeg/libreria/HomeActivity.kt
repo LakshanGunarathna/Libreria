@@ -9,7 +9,4 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
     }
 
-    fun cardView(){
-
-    }
 }

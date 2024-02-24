@@ -13,7 +13,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
-    fun LoginCheck(view: View) {
+    /*fun LoginCheck(view: View) {
 
         val username: EditText = findViewById(R.id.editTxtUserName)
         val password: EditText = findViewById(R.id.editTxtPassword)
@@ -29,6 +29,6 @@ class LoginActivity : AppCompatActivity() {
 
     fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
+    }*/
 
 }

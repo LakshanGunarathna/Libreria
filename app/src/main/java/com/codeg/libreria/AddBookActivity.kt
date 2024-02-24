@@ -1,5 +1,6 @@
 package com.codeg.libreria
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,7 +16,7 @@ class AddBookActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_book)
 
-        editTextResult = findViewById(R.id.edit_text_result)
+        editTextResult = findViewById(R.id.editTxtISBN)
 
         // Create an instance of CodeScanner with the application context
         codeScanner = CodeScanner(this)
@@ -45,6 +46,7 @@ class AddBookActivity : AppCompatActivity() {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
+    @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String>,

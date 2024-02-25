@@ -14,13 +14,23 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
-        android:gravity="center"
+        android:gravity="horizontal_center"
         android:orientation="vertical"
         android:padding="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="80dp"
+            android:text="Add Book" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,14 +41,14 @@
 
             <TextView
                 android:id="@+id/txtISBN"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ISBN" />
 
             <EditText
                 android:id="@+id/editTxtISBN"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -46,8 +56,9 @@
 
             <ImageButton
                 android:id="@+id/btnScan"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="20dp"
                 android:background="@color/darkBlue"
                 android:onClick="onScanButtonClicked"
                 app:srcCompat="@drawable/qr_code" />
@@ -64,7 +75,7 @@
 
             <TextView
                 android:id="@+id/txtTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Title" />
@@ -81,11 +92,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="25dp">
 
             <TextView
                 android:id="@+id/txtAuthor"
-                android:layout_width="wrap_content"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Author" />
@@ -99,6 +111,27 @@
                 android:inputType="textPersonName" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="25dp">
+
+            <TextView
+                android:id="@+id/txtGenre"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Genre" />
+
+            <EditText
+                android:id="@+id/editTxtGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
     </LinearLayout>
 

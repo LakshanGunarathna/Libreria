@@ -12,10 +12,10 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="update add user">
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="change the welcome page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/WelcomeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/WelcomeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/qr_code.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,21 @@
       <option name="project" value="LOCAL" />
       <updated>1708796218831</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="create the database class">
+      <created>1708889518699</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1708889518699</updated>
+    </task>
+    <task id="LOCAL-00010" summary="change the welcome page">
+      <created>1708889566407</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1708889566407</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +234,8 @@
     <MESSAGE value="create add book activity" />
     <MESSAGE value="create add user interface" />
     <MESSAGE value="update add user" />
-    <option name="LAST_COMMIT_MESSAGE" value="update add user" />
+    <MESSAGE value="create the database class" />
+    <MESSAGE value="change the welcome page" />
+    <option name="LAST_COMMIT_MESSAGE" value="change the welcome page" />
   </component>
 </project>

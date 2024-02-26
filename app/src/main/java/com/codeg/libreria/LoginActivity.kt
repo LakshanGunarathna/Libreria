@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
         if (username.text.toString() == "lk" &&
             password.text.toString() == "1") {
-            val gotoNextScreen = Intent(applicationContext,AddBookActivity::class.java)
+            val gotoNextScreen = Intent(applicationContext,HomeActivity::class.java)
             startActivity(gotoNextScreen)
         } else {
             showToast("Login Error!!!")

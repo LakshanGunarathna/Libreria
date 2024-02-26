@@ -12,4 +12,10 @@
     <string name="addBook">Add Book</string>
     <string name="cancel">Cancel</string>
     <string name="submit">Submit</string>
+    <string name="add">Add</string>
+    <string name="isbn">ISBN</string>
+    <string name="title">Title</string>
+    <string name="author">Author</string>
+    <string name="genre">Genre</string>
+    <string name="noCopies">No of Copies</string>
 </resources>

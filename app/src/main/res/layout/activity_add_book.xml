@@ -15,7 +15,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:orientation="vertical"
-        android:padding="30dp"
+        android:padding="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,29 +25,29 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="80sp"
             android:gravity="center"
-            android:text="Add Book"
-            android:textSize="30dp"
+            android:text="@string/addBook"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="25sp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txtISBN"
-                android:layout_width="20dp"
+                android:layout_width="20sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ISBN" />
 
             <EditText
                 android:id="@+id/editTxtISBN"
-                android:layout_width="150dp"
+                android:layout_width="150sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -55,9 +55,9 @@
 
             <ImageButton
                 android:id="@+id/btnScan"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="20dp"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:layout_marginLeft="20sp"
                 android:background="@color/darkBlue"
                 android:onClick="onScanButtonClicked"
                 app:srcCompat="@drawable/qr_code" />
@@ -68,12 +68,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="25sp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txtTitle"
-                android:layout_width="20dp"
+                android:layout_width="20sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Title" />
@@ -90,12 +90,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="25sp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txtAuthor"
-                android:layout_width="20dp"
+                android:layout_width="20sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Author" />
@@ -112,12 +112,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="25sp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/txtGenre"
-                android:layout_width="20dp"
+                android:layout_width="20sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Genre" />
@@ -129,6 +129,31 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="15sp"
+                android:text="@string/submit" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="15sp"
+                android:theme="@style/Button"
+                android:text="@string/cancel" />
         </LinearLayout>
 
     </LinearLayout>

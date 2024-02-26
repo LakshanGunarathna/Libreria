@@ -5,7 +5,9 @@
     <item name="colorPrimary">@color/blue</item>
     <item name="colorPrimaryDark">@color/darkBlue</item>
     <item name="colorAccent">@color/red</item>
-
   </style>
 
+  <style name="Button" parent="ThemeOverlay.AppCompat">
+    <item name="colorPrimary">@color/gray</item>
+  </style>
 </resources>

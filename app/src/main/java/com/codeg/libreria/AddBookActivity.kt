@@ -33,6 +33,7 @@ class AddBookActivity : AppCompatActivity() {
                 runOnUiThread {
                     // Update UI on the main thread
                     editTxtISBN.setText(result)  // Use setText instead of text if needed
+                    codeScanner
                 }
             },
             errorCallback = { error ->

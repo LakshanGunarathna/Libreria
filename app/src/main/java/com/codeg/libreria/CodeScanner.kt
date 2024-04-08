@@ -72,6 +72,7 @@ class CodeScanner(private val activity: Activity) {
 
 
     private fun getSuccessfulMessage(barcode: Barcode): String {
+
         return String.format(
             Locale.US,
             "%s",

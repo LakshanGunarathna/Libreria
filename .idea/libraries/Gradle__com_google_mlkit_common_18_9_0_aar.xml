@@ -1,10 +1,7 @@
 <component name="libraryTable">
-  <library name="Gradle: com.google.mlkit:common:18.9.0@aar">
+  <library name="Gradle: com.google.mlkit:common:18.9.0@aar" external-system-id="GRADLE">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7fd7450c6ad0a08ebda505359ca1351e/transformed/jetified-common-18.9.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/5cc7ef0c7afba94376f94c4922306c2d/transformed/jetified-common-18.9.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6e549cdb3a62dcaa4618950668d13c60/transformed/jetified-common-18.9.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6e549cdb3a62dcaa4618950668d13c60/transformed/jetified-common-18.9.0/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6e549cdb3a62dcaa4618950668d13c60/transformed/jetified-common-18.9.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>

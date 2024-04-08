@@ -18,9 +18,6 @@
             android:name=".BooksActivity"
             android:exported="false" />
         <activity
-            android:name=".BookActivity"
-            android:exported="false" />
-        <activity
             android:name=".AdminActivity"
             android:exported="false" />
         <activity

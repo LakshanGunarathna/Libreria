@@ -10,11 +10,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        btnHome.setOnClickListener{
-            val gotoNextScreen = Intent(applicationContext, HomeActivity::class.java)
-            startActivity(gotoNextScreen)
-        }
-
         btnAddBook.setOnClickListener{
             val gotoNextScreen = Intent(applicationContext, AddBookActivity::class.java)
             startActivity(gotoNextScreen)

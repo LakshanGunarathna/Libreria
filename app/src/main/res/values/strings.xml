@@ -18,4 +18,8 @@
     <string name="author">Author</string>
     <string name="genre">Genre</string>
     <string name="noCopies">No of Copies</string>
+    <string name="title_activity_books">BooksActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

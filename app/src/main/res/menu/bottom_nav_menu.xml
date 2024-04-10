@@ -3,9 +3,10 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/home_icon"
         android:checked="true"
+        android:icon="@drawable/home_icon"
         android:title="Home" />
+
     <item
         android:id="@+id/navigation_book"
         android:icon="@drawable/book_icon"
@@ -14,6 +15,7 @@
         android:id="@+id/navigation_user"
         android:icon="@drawable/user_icon"
         android:title="User" />
+
     <item
         android:id="@+id/navigation_lending"
         android:icon="@drawable/lending_icon"

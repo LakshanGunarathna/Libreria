@@ -3,6 +3,7 @@ package com.codeg.libreria
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
@@ -12,6 +13,7 @@ class AddBookActivity : AppCompatActivity() {
     private lateinit var editTxtTitle: EditText
     private lateinit var editTxtAuthor: EditText
     private lateinit var editTxtISBN: EditText
+    private lateinit var db: LibreriaDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +25,21 @@ class AddBookActivity : AppCompatActivity() {
 
         // Create an instance of CodeScanner with the application context
         codeScanner = CodeScanner(this)
+
+        db = LibreriaDB(this)
+
+        val saveButton = findViewById<Button>(R.id.btnAddBook)
+        saveButton.setOnClickListener {
+            saveBook()
+            finish()
+        }
+
+
+        val cancelButton: Button = findViewById(R.id.btnCancel)
+        cancelButton.setOnClickListener {
+            finish() // Finish the activity and go back to the previous screen
+        }
+
     }
 
     // Inside onScanButtonClicked function
@@ -44,6 +61,23 @@ class AddBookActivity : AppCompatActivity() {
             }
         )
 
+    }
+
+    private fun saveBook() {
+        val isbnEditText = findViewById<EditText>(R.id.editTxtISBN)
+        val titleEditText = findViewById<EditText>(R.id.editTxtTitle)
+        val authorEditText = findViewById<EditText>(R.id.editTxtAuthor)
+        val genreEditText = findViewById<EditText>(R.id.editTxtGenre)
+        val numOfCopiesEditText = findViewById<EditText>(R.id.editTxtNoCopies)
+
+        val isbn = isbnEditText.text.toString()
+        val title = titleEditText.text.toString()
+        val author = authorEditText.text.toString()
+        val genre = genreEditText.text.toString()
+        val numOfCopies = numOfCopiesEditText.text.toString().toInt()
+
+        // Add book data to the database
+        db.insertBookData(isbn, title, author, genre, numOfCopies, "Available", this)
     }
 
 

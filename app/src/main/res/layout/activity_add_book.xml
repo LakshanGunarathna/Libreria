@@ -31,6 +31,29 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="20sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/title" />
+
+                <EditText
+                    android:id="@+id/editTxtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,29 +85,6 @@
                     android:onClick="onScanButtonClicked"
                     app:srcCompat="@drawable/qr_code" />
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="25sp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txtTitle"
-                    android:layout_width="20sp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/title" />
-
-                <EditText
-                    android:id="@+id/editTxtTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="textPersonName" />
             </LinearLayout>
 
             <LinearLayout
@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="number" />
 
             </LinearLayout>
 
@@ -163,7 +163,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnSubmit"
+                    android:id="@+id/btnAddBook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="15sp"

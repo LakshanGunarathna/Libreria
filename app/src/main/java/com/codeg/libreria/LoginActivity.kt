@@ -1,34 +1,83 @@
 package com.codeg.libreria
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var username: EditText
+    private lateinit var password: EditText
+
+    private val logoutDelayMillis: Long = 3600000 // 1 hour in milliseconds
+    private val handler = Handler()
+    private val logoutRunnable = Runnable { logoutUser() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        username = findViewById(R.id.editTxtUserName)
+        password = findViewById(R.id.editTxtPassword)
+
+        checkLoginStatus()
+    }
+
+    private fun checkLoginStatus() {
+        val lastLoginTime = sharedPreferences.getLong("lastLoginTime", 0)
+        if (System.currentTimeMillis() - lastLoginTime < logoutDelayMillis) {
+            // User is still logged in
+            navigateToMainActivity()
+        } else {
+            // User has been inactive for too long, automatically logout
+            logoutUser()
+        }
+    }
+
+    private fun loginSuccess() {
+        sharedPreferences.edit().putLong("lastLoginTime", System.currentTimeMillis()).apply()
+        navigateToMainActivity()
+    }
+
+    private fun navigateToMainActivity() {
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun logoutUser() {
+        showToast("Logged out due to inactivity")
+        // Perform any logout tasks here
+        // For example: Clear user session data, navigate to login screen
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        handler.postDelayed(logoutRunnable, logoutDelayMillis)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        handler.removeCallbacks(logoutRunnable)
     }
 
     fun LoginCheck(view: View) {
-
-        val username: EditText = findViewById(R.id.editTxtUserName)
-        val password: EditText = findViewById(R.id.editTxtPassword)
-
-        if (username.text.toString() == "lk" &&
-            password.text.toString() == "1") {
-            val gotoNextScreen = Intent(applicationContext,MainActivity::class.java)
-            startActivity(gotoNextScreen)
+        if (username.text.toString() == "lk" && password.text.toString() == "1") {
+            loginSuccess()
         } else {
             showToast("Login Error!!!")
         }
     }
-
-    fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
 }

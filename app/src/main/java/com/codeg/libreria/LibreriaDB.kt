@@ -2,8 +2,10 @@ package com.codeg.libreria
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.widget.Toast
 
 class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", null, 1) {
     companion object {
@@ -25,7 +27,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         const val COLUMN_BOOK_TITLE = "book_title"
         const val COLUMN_BOOK_AUTHOR = "book_author"
         const val COLUMN_BOOK_GENRE = "book_genre"
-        const val COLUMN_BOOK_PUBLICATION_YEAR = "book_publication_year"
+        const val COLUMN_BOOK_NUM_OF_COPIES = "book_num_of_copies"
         const val COLUMN_BOOK_AVAILABILITY_STATUS = "book_availability_status"
 
         // Define columns for Borrowings table
@@ -53,13 +55,14 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             )
         """
 
+        // SQL statement for creating Books table
         const val SQL_CREATE_BOOKS_TABLE = """
             CREATE TABLE $TABLE_BOOKS (
                 $COLUMN_BOOK_ISBN TEXT PRIMARY KEY,
                 $COLUMN_BOOK_TITLE TEXT,
                 $COLUMN_BOOK_AUTHOR TEXT,
                 $COLUMN_BOOK_GENRE TEXT,
-                $COLUMN_BOOK_PUBLICATION_YEAR INTEGER,
+                $COLUMN_BOOK_NUM_OF_COPIES INTEGER,
                 $COLUMN_BOOK_AVAILABILITY_STATUS TEXT
             )
         """
@@ -100,6 +103,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         onCreate(db)
     }
 
+
     // Insert user data into Users table
     fun insertUserData(name: String, address: String, contact: String, email: String, libraryCard: String) {
         val values = ContentValues().apply {
@@ -115,18 +119,25 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
     }
 
     // Insert book data into Books table
-    fun insertBookData(isbn: String, title: String, author: String, genre: String, publicationYear: Int, availabilityStatus: String) {
+    fun insertBookData(isbn: String, title: String, author: String, genre: String, numOfCopies: Int, availabilityStatus: String, context: Context) {
         val values = ContentValues().apply {
             put(COLUMN_BOOK_ISBN, isbn)
             put(COLUMN_BOOK_TITLE, title)
             put(COLUMN_BOOK_AUTHOR, author)
             put(COLUMN_BOOK_GENRE, genre)
-            put(COLUMN_BOOK_PUBLICATION_YEAR, publicationYear)
+            put(COLUMN_BOOK_NUM_OF_COPIES, numOfCopies)
             put(COLUMN_BOOK_AVAILABILITY_STATUS, availabilityStatus)
         }
 
         val db = writableDatabase
-        db.insert(TABLE_BOOKS, null, values)
+        val result = db.insert(TABLE_BOOKS, null, values)
+        if (result == -1L) {
+            // Insert failed
+            Toast.makeText(context, "Failed to add book", Toast.LENGTH_SHORT).show()
+        } else {
+            // Insert successful
+            Toast.makeText(context, "Book added successfully", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Insert borrowing data into Borrowings table
@@ -153,4 +164,63 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         val db = writableDatabase
         db.insert(TABLE_ADMINS, null, values)
     }
+
+    fun getAllBooks(): List<Book> {
+        val books = mutableListOf<Book>()
+        val db = readableDatabase
+        val cursor: Cursor? = db.rawQuery("SELECT * FROM $TABLE_BOOKS", null)
+        cursor?.use {
+            while (it.moveToNext()) {
+                val isbnIndex = it.getColumnIndex(COLUMN_BOOK_ISBN)
+                val titleIndex = it.getColumnIndex(COLUMN_BOOK_TITLE)
+                val authorIndex = it.getColumnIndex(COLUMN_BOOK_AUTHOR)
+                val genreIndex = it.getColumnIndex(COLUMN_BOOK_GENRE)
+                val numOfCopiesIndex = it.getColumnIndex(COLUMN_BOOK_NUM_OF_COPIES)
+                val availabilityStatusIndex = it.getColumnIndex(COLUMN_BOOK_AVAILABILITY_STATUS)
+
+                val isbn = it.getString(isbnIndex)
+                val title = it.getString(titleIndex)
+                val author = it.getString(authorIndex)
+                val genre = it.getString(genreIndex)
+                val numOfCopies = it.getInt(numOfCopiesIndex)
+                val availabilityStatus = it.getString(availabilityStatusIndex)
+
+                val book = Book(isbn, title, author, genre, numOfCopies, availabilityStatus)
+                books.add(book)
+            }
+        }
+        return books
+    }
+
+    fun getBooksCount(): Int {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM $TABLE_BOOKS", null)
+        var count = 0
+        cursor?.use {
+            if (it.moveToFirst()) {
+                count = it.getInt(0)
+            }
+        }
+        cursor?.close()
+        return count
+    }
+
+    fun getTotalCopiesCount(): Int {
+        val db = readableDatabase
+        val query = "SELECT SUM($COLUMN_BOOK_NUM_OF_COPIES) FROM $TABLE_BOOKS"
+        val cursor = db.rawQuery(query, null)
+        var count = 0
+
+        cursor?.let {
+            if (it.moveToFirst()) {
+                count = it.getInt(0)
+            }
+            it.close()
+        }
+
+        return count
+    }
+
+
+
 }

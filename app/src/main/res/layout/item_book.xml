@@ -1,20 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="25sp"
     android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/titleTextView"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/imageViewCover"
+        android:layout_width="80sp"
+        android:layout_height="120sp"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="15sp"
+        android:src="@drawable/libreria_icon" />
 
-    <TextView
-        android:id="@+id/authorTextView"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/title" />
+
+            <TextView
+                android:id="@+id/txtViewTitle"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtAuthor"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/author" />
+
+            <TextView
+                android:id="@+id/txtViewAuthor"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtIsbn"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/isbn" />
+
+            <TextView
+                android:id="@+id/txtViewIsbn"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtGenre"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/genre" />
+
+            <TextView
+                android:id="@+id/txtViewGenre"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtNoCopies"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="# Copies:" />
+
+            <TextView
+                android:id="@+id/txtViewNoCopies"
+                android:layout_width="150sp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

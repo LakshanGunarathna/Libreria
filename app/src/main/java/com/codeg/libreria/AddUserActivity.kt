@@ -21,7 +21,7 @@ class AddUserActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_user)
 
         qrcodeImageView = findViewById(R.id.qrcodeImageView)
-        val inputTxt: EditText = findViewById(R.id.editTxtName)
+        val inputTxt: EditText = findViewById(R.id.editTxtUserId)
         val generateButton: Button = findViewById(R.id.generateButton)
         generateButton.setOnClickListener {
             generateQRCode(inputTxt.text.toString())

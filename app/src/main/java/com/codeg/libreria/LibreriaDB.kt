@@ -5,7 +5,10 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.widget.Toast
+import java.io.ByteArrayOutputStream
 
 class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", null, 1) {
     companion object {
@@ -28,6 +31,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         const val COLUMN_BOOK_AUTHOR = "book_author"
         const val COLUMN_BOOK_GENRE = "book_genre"
         const val COLUMN_BOOK_NUM_OF_COPIES = "book_num_of_copies"
+        const val COLUMN_BOOK_COVER_IMAGE = "book_cover_image"
         const val COLUMN_BOOK_AVAILABILITY_STATUS = "book_availability_status"
 
         // Define columns for Borrowings table
@@ -63,7 +67,8 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
                 $COLUMN_BOOK_AUTHOR TEXT,
                 $COLUMN_BOOK_GENRE TEXT,
                 $COLUMN_BOOK_NUM_OF_COPIES INTEGER,
-                $COLUMN_BOOK_AVAILABILITY_STATUS TEXT
+                $COLUMN_BOOK_AVAILABILITY_STATUS TEXT,
+                $COLUMN_BOOK_COVER_IMAGE TEXT
             )
         """
 
@@ -119,7 +124,16 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
     }
 
     // Insert book data into Books table
-    fun insertBookData(isbn: String, title: String, author: String, genre: String, numOfCopies: Int, availabilityStatus: String, context: Context) {
+    fun insertBookData(
+        isbn: String,
+        title: String,
+        author: String,
+        genre: String,
+        numOfCopies: Int,
+        availabilityStatus: String,
+        context: Context,
+        coverBitmap: Bitmap? // Updated parameter to accept Bitmap
+    ) {
         val values = ContentValues().apply {
             put(COLUMN_BOOK_ISBN, isbn)
             put(COLUMN_BOOK_TITLE, title)
@@ -127,6 +141,9 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             put(COLUMN_BOOK_GENRE, genre)
             put(COLUMN_BOOK_NUM_OF_COPIES, numOfCopies)
             put(COLUMN_BOOK_AVAILABILITY_STATUS, availabilityStatus)
+            // Store the bitmap as byte array in the database
+            put(COLUMN_BOOK_COVER_IMAGE, coverBitmap?.let { convertBitmapToByteArray(it) })
+
         }
 
         val db = writableDatabase
@@ -139,6 +156,15 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             Toast.makeText(context, "Book added successfully", Toast.LENGTH_SHORT).show()
         }
     }
+
+    // Helper method to convert Bitmap to byte array
+    private fun convertBitmapToByteArray(bitmap: Bitmap?): ByteArray? {
+        if (bitmap == null) return null
+        val stream = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+        return stream.toByteArray()
+    }
+
 
     // Insert borrowing data into Borrowings table
     fun insertBorrowingData(userId: Int, isbn: String, borrowingDate: String, dueDate: String, returnDate: String) {
@@ -169,28 +195,34 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         val books = mutableListOf<Book>()
         val db = readableDatabase
         val cursor: Cursor? = db.rawQuery("SELECT * FROM $TABLE_BOOKS", null)
-        cursor?.use {
-            while (it.moveToNext()) {
-                val isbnIndex = it.getColumnIndex(COLUMN_BOOK_ISBN)
-                val titleIndex = it.getColumnIndex(COLUMN_BOOK_TITLE)
-                val authorIndex = it.getColumnIndex(COLUMN_BOOK_AUTHOR)
-                val genreIndex = it.getColumnIndex(COLUMN_BOOK_GENRE)
-                val numOfCopiesIndex = it.getColumnIndex(COLUMN_BOOK_NUM_OF_COPIES)
-                val availabilityStatusIndex = it.getColumnIndex(COLUMN_BOOK_AVAILABILITY_STATUS)
+        cursor?.use { cursor ->
+            val isbnIndex = cursor.getColumnIndex(COLUMN_BOOK_ISBN)
+            val titleIndex = cursor.getColumnIndex(COLUMN_BOOK_TITLE)
+            val authorIndex = cursor.getColumnIndex(COLUMN_BOOK_AUTHOR)
+            val genreIndex = cursor.getColumnIndex(COLUMN_BOOK_GENRE)
+            val numOfCopiesIndex = cursor.getColumnIndex(COLUMN_BOOK_NUM_OF_COPIES)
+            val availabilityStatusIndex = cursor.getColumnIndex(COLUMN_BOOK_AVAILABILITY_STATUS)
+            val imageBitmapIndex = cursor.getColumnIndex(COLUMN_BOOK_COVER_IMAGE) // Add this line
 
-                val isbn = it.getString(isbnIndex)
-                val title = it.getString(titleIndex)
-                val author = it.getString(authorIndex)
-                val genre = it.getString(genreIndex)
-                val numOfCopies = it.getInt(numOfCopiesIndex)
-                val availabilityStatus = it.getString(availabilityStatusIndex)
+            while (cursor.moveToNext()) {
+                val isbn = cursor.getString(isbnIndex)
+                val title = cursor.getString(titleIndex)
+                val author = cursor.getString(authorIndex)
+                val genre = cursor.getString(genreIndex)
+                val numOfCopies = cursor.getInt(numOfCopiesIndex)
+                val availabilityStatus = cursor.getString(availabilityStatusIndex)
+                val imageByteArray = cursor.getBlob(imageBitmapIndex) // Update this line
+                val imageBitmap = if (imageByteArray != null) BitmapFactory.decodeByteArray(imageByteArray, 0, imageByteArray.size) else null // Update this line
 
-                val book = Book(isbn, title, author, genre, numOfCopies, availabilityStatus)
+                val book = Book(isbn, title, author, genre, numOfCopies, availabilityStatus, imageBitmap)
                 books.add(book)
             }
         }
         return books
     }
+
+
+
 
     fun getBooksCount(): Int {
         val db = readableDatabase

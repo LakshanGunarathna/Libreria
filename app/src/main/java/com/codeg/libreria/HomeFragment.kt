@@ -29,8 +29,12 @@ class HomeFragment : Fragment() {
         // Retrieve count of copies from database
         val copiesCount = db.getTotalCopiesCount()
 
+        // Retrieve count of users from database
+        val userCount = db.getUsersCount()
+
         // Set the counts to their respective TextViews
         txtViewBook.text = bookCount.toString()
         txtViewCopies.text = copiesCount.toString()
+        txtViewUser.text = userCount.toString()
     }
 }

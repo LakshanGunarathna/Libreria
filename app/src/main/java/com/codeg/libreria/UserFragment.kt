@@ -2,24 +2,26 @@ package com.codeg.libreria
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_books.addBookButton
-import kotlinx.android.synthetic.main.fragment_books.recyclerView
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.fragment_user.addUserButton
+import kotlinx.android.synthetic.main.fragment_user.recyclerViewUser
+import kotlinx.android.synthetic.main.fragment_user.*
 
 class UserFragment : Fragment() {
 
     private lateinit var db: LibreriaDB
-    private lateinit var bookAdapter: BookAdapter
+    private lateinit var userAdapter: UserAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_books, container, false)
+        return inflater.inflate(R.layout.fragment_user, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,20 +29,21 @@ class UserFragment : Fragment() {
 
         db = LibreriaDB(requireContext())
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        bookAdapter = BookAdapter()
-        recyclerView.adapter = bookAdapter
+        recyclerViewUser.layoutManager = LinearLayoutManager(requireContext())
+        userAdapter = UserAdapter()
+        recyclerViewUser.adapter = userAdapter
 
-        loadBooks()
+        loadUsers()
 
-        addBookButton.setOnClickListener {
-            val intent = Intent(requireActivity(), AddBookActivity::class.java)
+        addUserButton.setOnClickListener {
+            // Open the activity to add a new user
+            val intent = Intent(requireContext(), AddUserActivity::class.java)
             startActivity(intent)
         }
     }
 
-    private fun loadBooks() {
-        val books = db.getAllBooks()
-        bookAdapter.submitList(books)
+    private fun loadUsers() {
+        val users = db.getAllUsers()
+        userAdapter.submitList(users)
     }
 }

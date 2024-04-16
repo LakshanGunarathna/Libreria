@@ -65,6 +65,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_user.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -79,36 +84,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="home fragment update">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/Admin.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/LendingFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/User.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_lending.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_user.xml" afterDir="false" />
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddBookActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddBookActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddUserActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddUserActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/Book.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/Book.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/BookAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/BookAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/CodeScanner.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/CodeScanner.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/LibreriaDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/LibreriaDB.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/User.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/User.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/UserFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_user.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_books.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_books.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_book.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_book.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -512,7 +504,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712761858249</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="book section finished">
+      <option name="closed" value="true" />
+      <created>1713106128449</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1713106128449</updated>
+    </task>
+    <task id="LOCAL-00032" summary="small modifications">
+      <option name="closed" value="true" />
+      <created>1713106185095</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1713106185095</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,8 +535,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update add user" />
-    <MESSAGE value="create the database class" />
     <MESSAGE value="change the welcome page" />
     <MESSAGE value="edited add book activity" />
     <MESSAGE value="upload qr code icon" />
@@ -552,6 +558,8 @@
     <MESSAGE value="change nav menu" />
     <MESSAGE value="auto logout function" />
     <MESSAGE value="home fragment update" />
-    <option name="LAST_COMMIT_MESSAGE" value="home fragment update" />
+    <MESSAGE value="book section finished" />
+    <MESSAGE value="small modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="small modifications" />
   </component>
 </project>

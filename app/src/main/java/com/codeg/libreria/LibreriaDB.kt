@@ -23,7 +23,6 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         const val COLUMN_USER_ADDRESS = "user_address"
         const val COLUMN_USER_CONTACT = "user_contact"
         const val COLUMN_USER_EMAIL = "user_email"
-        const val COLUMN_USER_LIBRARY_CARD = "user_library_card"
 
         // Define columns for Books table
         const val COLUMN_BOOK_ISBN = "book_isbn"
@@ -47,15 +46,14 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         const val COLUMN_ADMIN_USERNAME = "admin_username"
         const val COLUMN_ADMIN_PASSWORD = "admin_password"
 
-        // SQL statements for creating tables
+        // SQL statement for creating Users table
         const val SQL_CREATE_USERS_TABLE = """
             CREATE TABLE $TABLE_USERS (
                 $COLUMN_USER_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $COLUMN_USER_NAME TEXT,
                 $COLUMN_USER_ADDRESS TEXT,
                 $COLUMN_USER_CONTACT TEXT,
-                $COLUMN_USER_EMAIL TEXT,
-                $COLUMN_USER_LIBRARY_CARD TEXT
+                $COLUMN_USER_EMAIL TEXT
             )
         """
 
@@ -110,17 +108,17 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
 
 
     // Insert user data into Users table
-    fun insertUserData(name: String, address: String, contact: String, email: String, libraryCard: String) {
+    fun insertUserData(name: String, address: String, contact: String, email: String) {
         val values = ContentValues().apply {
             put(COLUMN_USER_NAME, name)
             put(COLUMN_USER_ADDRESS, address)
             put(COLUMN_USER_CONTACT, contact)
             put(COLUMN_USER_EMAIL, email)
-            put(COLUMN_USER_LIBRARY_CARD, libraryCard)
         }
 
         val db = writableDatabase
         db.insert(TABLE_USERS, null, values)
+        db.close()
     }
 
     // Insert book data into Books table
@@ -252,6 +250,54 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
 
         return count
     }
+
+    // Get all users from Users table
+    fun getAllUsers(): ArrayList<User> {
+        val usersList = ArrayList<User>()
+        val db = readableDatabase
+        val cursor: Cursor? = db.rawQuery("SELECT * FROM $TABLE_USERS", null)
+        cursor?.use {
+            if (it.moveToFirst()) {
+                val idIndex = it.getColumnIndex(COLUMN_USER_ID)
+                val nameIndex = it.getColumnIndex(COLUMN_USER_NAME)
+                val addressIndex = it.getColumnIndex(COLUMN_USER_ADDRESS)
+                val contactIndex = it.getColumnIndex(COLUMN_USER_CONTACT)
+                val emailIndex = it.getColumnIndex(COLUMN_USER_EMAIL)
+
+                do {
+                    val userId = it.getInt(idIndex)
+                    val name = it.getString(nameIndex)
+                    val address = it.getString(addressIndex)
+                    val contact = it.getString(contactIndex)
+                    val email = it.getString(emailIndex)
+
+                    val user = User(userId, name, address, contact, email)
+                    usersList.add(user)
+                } while (it.moveToNext())
+            }
+        }
+        cursor?.close()
+        db.close()
+        return usersList
+    }
+
+
+
+    // Get the count of users in Users table
+    fun getUsersCount(): Int {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM $TABLE_USERS", null)
+        var count = 0
+        cursor?.use {
+            if (it.moveToFirst()) {
+                count = it.getInt(0)
+            }
+        }
+        cursor?.close()
+        db.close()
+        return count
+    }
+
 
 
 

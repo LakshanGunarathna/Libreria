@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
                 openFragment(BooksFragment())
                 bottomNavigationView.selectedItemId = R.id.navigation_book // Select the "Book" icon
             }
+            "UserFragment" -> {
+                openFragment(UserFragment())
+                bottomNavigationView.selectedItemId = R.id.navigation_user // Select the "User" icon
+            }
             else -> openFragment(HomeFragment()) // Default fragment
         }
 

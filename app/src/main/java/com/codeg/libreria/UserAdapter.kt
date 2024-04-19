@@ -1,5 +1,6 @@
 package com.codeg.libreria
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +29,7 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(UserDiffCallba
         private val emailTextView: TextView = itemView.findViewById(R.id.txtViewEmail)
 
         fun bind(user: User) {
-            userIdTextView.text = user.userId.toString() // Convert Int to String explicitly
+            userIdTextView.text = user.userId
             nameTextView.text = user.name
             addressTextView.text = user.address
             contactTextView.text = user.contact
@@ -41,6 +42,7 @@ class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(UserDiffCallba
             return oldItem.userId == newItem.userId
         }
 
+        @SuppressLint("DiffUtilEquals")
         override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
             return oldItem == newItem
         }

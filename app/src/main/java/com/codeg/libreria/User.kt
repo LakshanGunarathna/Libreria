@@ -1,7 +1,7 @@
 package com.codeg.libreria
 
 class User(
-    val userId: Int,
+    val userId: String,
     val name: String,
     val address: String,
     val contact: String,

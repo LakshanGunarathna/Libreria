@@ -1,5 +1,6 @@
 package com.codeg.libreria
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
@@ -9,6 +10,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.widget.Toast
 import java.io.ByteArrayOutputStream
+import java.util.Locale
 
 class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", null, 1) {
     companion object {
@@ -49,7 +51,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         // SQL statement for creating Users table
         const val SQL_CREATE_USERS_TABLE = """
             CREATE TABLE $TABLE_USERS (
-                $COLUMN_USER_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                $COLUMN_USER_ID TEXT PRIMARY KEY,
                 $COLUMN_USER_NAME TEXT,
                 $COLUMN_USER_ADDRESS TEXT,
                 $COLUMN_USER_CONTACT TEXT,
@@ -108,8 +110,9 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
 
 
     // Insert user data into Users table
-    fun insertUserData(name: String, address: String, contact: String, email: String) {
+    fun insertUserData(userId: String, name: String, address: String, contact: String, email: String) {
         val values = ContentValues().apply {
+            put(COLUMN_USER_ID, userId) // Save the provided user ID
             put(COLUMN_USER_NAME, name)
             put(COLUMN_USER_ADDRESS, address)
             put(COLUMN_USER_CONTACT, contact)
@@ -120,7 +123,6 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         db.insert(TABLE_USERS, null, values)
         db.close()
     }
-
     // Insert book data into Books table
     fun insertBookData(
         isbn: String,
@@ -265,7 +267,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
                 val emailIndex = it.getColumnIndex(COLUMN_USER_EMAIL)
 
                 do {
-                    val userId = it.getInt(idIndex)
+                    val userId = it.getString(idIndex)
                     val name = it.getString(nameIndex)
                     val address = it.getString(addressIndex)
                     val contact = it.getString(contactIndex)
@@ -298,6 +300,30 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return count
     }
 
+
+    fun generateNextUserId(): String {
+        val lastUserId = getLastUserId()
+        val nextId = if (lastUserId != null) {
+            val lastNumber = lastUserId.substring(2).toInt()
+            String.format(Locale.US, "LU%03d", lastNumber + 1)
+        } else {
+            "LU001" // If no users exist, start with LU001
+        }
+        return nextId
+    }
+
+
+    @SuppressLint("Range")
+    private fun getLastUserId(): String? {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT $COLUMN_USER_ID FROM $TABLE_USERS ORDER BY $COLUMN_USER_ID DESC LIMIT 1", null)
+        var lastUserId: String? = null
+        if (cursor != null && cursor.moveToFirst()) {
+            lastUserId = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID))
+        }
+        cursor?.close()
+        return lastUserId
+    }
 
 
 

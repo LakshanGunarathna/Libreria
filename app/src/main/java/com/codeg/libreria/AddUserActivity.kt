@@ -9,8 +9,9 @@ import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.codeg.libreria.R
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
@@ -21,39 +22,73 @@ import java.util.*
 class AddUserActivity : AppCompatActivity() {
 
     private lateinit var qrcodeImageView: ImageView
-    private lateinit var userIdEditText: EditText
-    private lateinit var nameEditText: EditText
-    private lateinit var addressEditText: EditText
-    private lateinit var telNoEditText: EditText
-    private lateinit var emailEditText: EditText
-    private lateinit var generateButton: Button
-    private lateinit var addUserButton: Button
+
+    private lateinit var db: LibreriaDB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_user)
 
-        qrcodeImageView = findViewById(R.id.qrcodeImageView)
-        userIdEditText = findViewById(R.id.editTxtUserId)
-        nameEditText = findViewById(R.id.editTxtName)
-        addressEditText = findViewById(R.id.editTxtAddress)
-        telNoEditText = findViewById(R.id.editTxtTelNo)
-        emailEditText = findViewById(R.id.emailEditText)
-        generateButton = findViewById(R.id.generateButton)
-        addUserButton = findViewById(R.id.btnAddUser)
+        db = LibreriaDB(this)
 
-        // Automatically generate a unique user ID
-        userIdEditText.setText(UUID.randomUUID().toString())
+        val userIDInput: EditText = findViewById(R.id.editTxtUserId)
+        val txtUserId: TextView = findViewById(R.id.txtUserId)
+        val nameInput: EditText = findViewById(R.id.editTxtName)
+        val addressInput: EditText = findViewById(R.id.editTxtAddress)
+        val contactInput: EditText = findViewById(R.id.editTxtTelNo)
+        val emailInput: EditText = findViewById(R.id.editTxtEmail)
+        val generateButton: Button = findViewById(R.id.generateButton)
+        val addUserButton: Button = findViewById(R.id.btnAddUser)
+
+        // Initialize the ImageView
+        qrcodeImageView = findViewById(R.id.qrcodeImageView)
 
         generateButton.setOnClickListener {
-            generateQRCode(userIdEditText.text.toString())
+            // Generate a new user ID
+            val userId = db.generateNextUserId()
+            // Set the generated user ID in the name input field
+            userIDInput.setText(userId)
+            userIDInput.visibility = EditText.VISIBLE
+            txtUserId.visibility = TextView.VISIBLE
+
+            // Generate QR code logic
+            generateQRCode(userId)
+            // Enable the addUserButton
+            addUserButton.visibility = Button.VISIBLE
+        }
+
+        val cancelButton: Button = findViewById(R.id.btnCancel)
+        cancelButton.setOnClickListener {
+            finish() // Finish the activity and go back to the previous screen
         }
 
         addUserButton.setOnClickListener {
-            // Implement the logic to add the user to the database
-            // After successfully adding the user, make the addUserButton visible
-            // For demonstration purposes, I'm making it visible immediately after generating the QR code
-            addUserButton.visibility = Button.VISIBLE
+            val userId = userIDInput.text.toString()
+            val name = nameInput.text.toString()
+            val address = addressInput.text.toString()
+            val contact = contactInput.text.toString()
+            val email = emailInput.text.toString()
+
+            // Insert user data into the database
+            db.insertUserData(userId, name, address, contact, email)
+
+            // Show a toast message upon successful insertion
+            Toast.makeText(this, "User added successfully", Toast.LENGTH_SHORT).show()
+
+            // Clear input fields after adding the user
+            nameInput.text.clear()
+            addressInput.text.clear()
+            contactInput.text.clear()
+            emailInput.text.clear()
+
+            // Redirect to the MainActivity and open the BooksFragment
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("fragmentToOpen", "UserFragment")
+            }
+            startActivity(intent)
+
+            // Finish the current activity
+            finish()
         }
 
         // Share button functionality

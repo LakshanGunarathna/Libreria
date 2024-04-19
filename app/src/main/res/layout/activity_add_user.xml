@@ -42,6 +42,7 @@
                     android:layout_width="20sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:visibility="invisible"
                     android:text="User ID:" />
 
                 <EditText
@@ -50,6 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:enabled="false"
+                    android:visibility="invisible"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -135,7 +138,7 @@
                     android:text="Email" />
 
                 <EditText
-                    android:id="@+id/emailEditText"
+                    android:id="@+id/editTxtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -153,19 +156,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/generateButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Generate QR Code" />
+                        android:text="Generate QR" />
 
                     <Button
                         android:id="@+id/btnShare"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50sp"
+                        android:layout_marginLeft="20sp"
                         android:text="Share" />
                 </LinearLayout>
 
@@ -173,7 +177,8 @@
                     android:id="@+id/qrcodeImageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp" />
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp" />
 
             </LinearLayout>
 
@@ -181,13 +186,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnAddUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15sp"
+                    android:visibility="visible"
                     android:layout_weight="1"
                     android:text="@string/add" />
 
@@ -195,7 +201,7 @@
                     android:id="@+id/btnCancel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="15sp"
+                    android:layout_margin="5sp"
                     android:layout_weight="1"
                     android:text="@string/cancel"
                     android:theme="@style/Button" />

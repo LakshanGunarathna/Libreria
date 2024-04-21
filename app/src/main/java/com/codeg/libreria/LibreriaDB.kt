@@ -85,6 +85,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             )
         """
 
+
         const val SQL_CREATE_ADMINS_TABLE = """
             CREATE TABLE $TABLE_ADMINS (
                 $COLUMN_ADMIN_ID INTEGER PRIMARY KEY AUTOINCREMENT,

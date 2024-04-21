@@ -109,7 +109,7 @@
                     android:layout_width="20sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="User ID: " />
+                    android:text="Book 2: " />
 
                 <EditText
                     android:id="@+id/editTxtISBNBook2"

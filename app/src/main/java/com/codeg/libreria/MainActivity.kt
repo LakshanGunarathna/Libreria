@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
                 openFragment(UserFragment())
                 bottomNavigationView.selectedItemId = R.id.navigation_user // Select the "User" icon
             }
+            "LendingFragment" -> {
+                openFragment(LendingFragment())
+                bottomNavigationView.selectedItemId = R.id.navigation_lending // Select the "Lending" icon
+            }
             else -> openFragment(HomeFragment()) // Default fragment
         }
 

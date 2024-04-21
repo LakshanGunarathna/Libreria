@@ -7,19 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_books.*
-import kotlinx.android.synthetic.main.fragment_lending.addLendingButton
+import kotlinx.android.synthetic.main.fragment_lending.*
 
 class LendingFragment : Fragment() {
 
     private lateinit var db: LibreriaDB
-    private lateinit var bookAdapter: BookAdapter
+    private lateinit var lendingAdapter: LendingAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_books, container, false)
+        return inflater.inflate(R.layout.fragment_lending, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,11 +26,11 @@ class LendingFragment : Fragment() {
 
         db = LibreriaDB(requireContext())
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        bookAdapter = BookAdapter()
-        recyclerView.adapter = bookAdapter
+        recyclerViewLending.layoutManager = LinearLayoutManager(requireContext())
+        lendingAdapter = LendingAdapter()
+        recyclerViewLending.adapter = lendingAdapter
 
-        loadBooks()
+        loadLendings()
 
         addLendingButton.setOnClickListener {
             val intent = Intent(requireActivity(), AddLendingActivity::class.java)
@@ -39,8 +38,8 @@ class LendingFragment : Fragment() {
         }
     }
 
-    private fun loadBooks() {
-        val books = db.getAllBooks()
-        bookAdapter.submitList(books)
+    private fun loadLendings() {
+        val lendings = db.getAllLendings()
+        lendingAdapter.submitList(lendings)
     }
 }

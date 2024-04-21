@@ -6,7 +6,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
 
 class AddLendingActivity : AppCompatActivity() {
 
@@ -14,9 +19,9 @@ class AddLendingActivity : AppCompatActivity() {
     private lateinit var editTxtUserID: EditText
     private lateinit var editTxtBook1: EditText
     private lateinit var editTxtBook2: EditText
-    private lateinit var btnScanUID :Button
-    private lateinit var btnScanBook1 :Button
-    private lateinit var btnScanBook2 :Button
+    private lateinit var btnScanUID: ImageButton
+    private lateinit var btnScanBook1: ImageButton
+    private lateinit var btnScanBook2: ImageButton
     private lateinit var db: LibreriaDB
 
 
@@ -88,10 +93,21 @@ class AddLendingActivity : AppCompatActivity() {
         val book1 = editTxtBook1.text.toString()
         val book2 = editTxtBook2.text.toString()
 
-        // Add book data to the database
-        //db.insertBookData(isbn, title, author, genre, numOfCopies, "Available", this, bitmap)
+        if (userID.isEmpty() || book1.isEmpty()) {
+            showToast("Please fill in all fields")
+            return
+        }
 
-        // Redirect to the MainActivity and open the BooksFragment
+        // Assuming borrowing date is the current date
+        val borrowingDate = getCurrentDateTime()
+
+        // Assuming due date is 14 days from the borrowing date
+        val dueDate = getDueDate(borrowingDate)
+
+        // Insert lending data into the database
+        db.insertBorrowingData(userID, book1, book2, borrowingDate, dueDate, null)
+
+        // Redirect to the MainActivity and open the LendingFragment
         val intent = Intent(this, MainActivity::class.java).apply {
             putExtra("fragmentToOpen", "LendingFragment")
         }
@@ -100,6 +116,22 @@ class AddLendingActivity : AppCompatActivity() {
         // Finish the current activity
         finish()
     }
+
+    private fun getCurrentDateTime(): String {
+        val calendar = Calendar.getInstance()
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        return formatter.format(calendar.time)
+    }
+
+    private fun getDueDate(borrowingDate: String): String {
+        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val calendar = Calendar.getInstance()
+        calendar.time = formatter.parse(borrowingDate) ?: Date()
+        calendar.add(Calendar.DATE, 14) // Add 14 days to borrowing date
+        return formatter.format(calendar.time)
+    }
+
+
 
 
     private fun showToast(message: String) {

@@ -38,7 +38,8 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         // Define columns for Borrowings table
         const val COLUMN_BORROWING_ID = "borrowing_id"
         const val COLUMN_BORROWING_USER_ID = "borrowing_user_id"
-        const val COLUMN_BORROWING_ISBN = "borrowing_isbn"
+        const val COLUMN_BORROWING_BOOK1 = "borrowing_book1"
+        const val COLUMN_BORROWING_BOOK2 = "borrowing_book2"
         const val COLUMN_BORROWING_DATE = "borrowing_date"
         const val COLUMN_BORROWING_DUE_DATE = "borrowing_due_date"
         const val COLUMN_BORROWING_RETURN_DATE = "borrowing_return_date"
@@ -75,8 +76,9 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         const val SQL_CREATE_BORROWINGS_TABLE = """
             CREATE TABLE $TABLE_BORROWINGS (
                 $COLUMN_BORROWING_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                $COLUMN_BORROWING_USER_ID INTEGER,
-                $COLUMN_BORROWING_ISBN TEXT,
+                $COLUMN_BORROWING_USER_ID TEXT,
+                $COLUMN_BORROWING_BOOK1 TEXT,
+                $COLUMN_BORROWING_BOOK2 TEXT,
                 $COLUMN_BORROWING_DATE TEXT,
                 $COLUMN_BORROWING_DUE_DATE TEXT,
                 $COLUMN_BORROWING_RETURN_DATE TEXT
@@ -165,20 +167,6 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return stream.toByteArray()
     }
 
-
-    // Insert borrowing data into Borrowings table
-    fun insertBorrowingData(userId: Int, isbn: String, borrowingDate: String, dueDate: String, returnDate: String) {
-        val values = ContentValues().apply {
-            put(COLUMN_BORROWING_USER_ID, userId)
-            put(COLUMN_BORROWING_ISBN, isbn)
-            put(COLUMN_BORROWING_DATE, borrowingDate)
-            put(COLUMN_BORROWING_DUE_DATE, dueDate)
-            put(COLUMN_BORROWING_RETURN_DATE, returnDate)
-        }
-
-        val db = writableDatabase
-        db.insert(TABLE_BORROWINGS, null, values)
-    }
 
     // Insert admin data into Admins table
     fun insertAdminData(username: String, password: String) {
@@ -326,5 +314,50 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
     }
 
 
+    // Insert borrowing data into Borrowings table
+    fun insertBorrowingData(userId: String, book1: String, book2: String?, borrowingDate: String, dueDate: String, returnDate: String?) {
+        val values = ContentValues().apply {
+            put(COLUMN_BORROWING_USER_ID, userId)
+            put(COLUMN_BORROWING_BOOK1, book1)
+            put(COLUMN_BORROWING_BOOK2, book2)
+            put(COLUMN_BORROWING_DATE, borrowingDate)
+            put(COLUMN_BORROWING_DUE_DATE, dueDate)
+            put(COLUMN_BORROWING_RETURN_DATE, returnDate)
+        }
+
+        val db = writableDatabase
+        db.insert(TABLE_BORROWINGS, null, values)
+    }
+
+
+    // Retrieve all lendings from Borrowings table
+    fun getAllLendings(): List<Lending> {
+        val lendings = mutableListOf<Lending>()
+        val db = readableDatabase
+        val cursor: Cursor? = db.rawQuery("SELECT * FROM $TABLE_BORROWINGS", null)
+        cursor?.use { cursor ->
+            val borrowingIdIndex = cursor.getColumnIndex(COLUMN_BORROWING_ID)
+            val userIdIndex = cursor.getColumnIndex(COLUMN_BORROWING_USER_ID)
+            val book1ISBNIndex = cursor.getColumnIndex(COLUMN_BORROWING_BOOK1)
+            val book2ISBNIndex = cursor.getColumnIndex(COLUMN_BORROWING_BOOK2)
+            val borrowingDateIndex = cursor.getColumnIndex(COLUMN_BORROWING_DATE)
+            val dueDateIndex = cursor.getColumnIndex(COLUMN_BORROWING_DUE_DATE)
+            val returnDateIndex = cursor.getColumnIndex(COLUMN_BORROWING_RETURN_DATE)
+
+            while (cursor.moveToNext()) {
+                val borrowingId = cursor.getInt(borrowingIdIndex)
+                val userId = cursor.getString(userIdIndex)
+                val book1ISBN = cursor.getString(book1ISBNIndex)
+                val book2ISBN = cursor.getString(book2ISBNIndex)
+                val borrowingDate = cursor.getString(borrowingDateIndex)
+                val dueDate = cursor.getString(dueDateIndex)
+                val returnDate = cursor.getString(returnDateIndex)
+
+                val lending = Lending(borrowingId, userId, book1ISBN, book2ISBN, borrowingDate, dueDate, returnDate)
+                lendings.add(lending)
+            }
+        }
+        return lendings
+    }
 
 }

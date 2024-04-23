@@ -429,7 +429,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             val emailIndex = cursor.getColumnIndex(COLUMN_ADMIN_EMAIL)
 
             while (cursor.moveToNext()) {
-                val id = cursor.getInt(usernameIndex)
+                val id = cursor.getInt(adminIdIndex)
                 val username = cursor.getString(usernameIndex)
                 val password = cursor.getString(passwordIndex)
                 val name = cursor.getString(nameIndex)
@@ -479,6 +479,31 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         cursor.close()
         return count > 0
     }
+    @SuppressLint("Range")
+    fun getCurrentAdmin(): Admin? {
+        val db = readableDatabase
+        val selection = "$COLUMN_ADMIN_ID = ?"
+        val selectionArgs = arrayOf("1") // Assuming the admin ID is always 1
+        val cursor = db.query(TABLE_ADMINS, null, selection, selectionArgs, null, null, null)
+        var admin: Admin? = null
+
+        if (cursor != null && cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ADMIN_ID))
+            val username = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_USERNAME))
+            val password = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_PASSWORD))
+            val name = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_NAME))
+            val address = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_ADDRESS))
+            val telephone = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_TELEPHONE))
+            val email = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_EMAIL))
+
+            admin = Admin(id, username, password, name, address, telephone, email)
+        }
+
+        cursor?.close()
+        db.close()
+        return admin
+    }
+
 
 
 

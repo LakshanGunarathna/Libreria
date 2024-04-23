@@ -66,9 +66,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun logoutUser() {
-        showToast("Logged out due to inactivity")
-        // Perform any logout tasks here
-        // For example: Clear user session data, navigate to login screen
+        sharedPreferences.edit().clear().apply() // Clear all shared preferences
+        showToast("Logged out from Libreria")
+        // Perform any other logout tasks here if needed
     }
 
     private fun showToast(message: String) {

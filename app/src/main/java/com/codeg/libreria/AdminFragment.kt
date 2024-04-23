@@ -1,5 +1,6 @@
 package com.codeg.libreria
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,10 +39,33 @@ class AdminFragment : Fragment() {
             val intent = Intent(requireContext(), AddAdminActivity::class.java)
             startActivity(intent)
         }
+
+        btnLogout.setOnClickListener {
+            logout()
+        }
+
+        // Set the current admin name to the TextView
+        val currentAdmin = db.getCurrentAdmin()
+        textViewCurrentAdmin.text = currentAdmin?.username ?: "No admin logged in"
     }
 
     private fun loadAdmins() {
         val admins = db.getAllAdmins()
         adminAdapter.submitList(admins)
     }
+
+    private fun logout() {
+        // Clear user session data
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.apply()
+
+        // Navigate to the LoginActivity
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish() // Finish the MainActivity to prevent going back
+    }
+
+
 }

@@ -15,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var username: EditText
     private lateinit var password: EditText
+    private lateinit var db: LibreriaDB
 
     private val logoutDelayMillis: Long = 3600000 // 1 hour in milliseconds
     private val handler = Handler()
@@ -23,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        db = LibreriaDB(this)
 
         sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         username = findViewById(R.id.editTxtUserName)
@@ -74,10 +77,14 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun LoginCheck(view: View) {
-        if (username.text.toString() == "lk" && password.text.toString() == "1") {
+        val enteredUsername = username.text.toString()
+        val enteredPassword = password.text.toString()
+
+        // Check if the entered credentials match any admin in the database
+        if (db.isAdminValid(enteredUsername, enteredPassword)) {
             loginSuccess()
         } else {
-            showToast("Login Error!!!")
+            showToast("Invalid username or password")
         }
     }
 }

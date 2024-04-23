@@ -461,5 +461,16 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return count
     }
 
+    fun isAdminValid(username: String, password: String): Boolean {
+        val db = readableDatabase
+        val selection = "$COLUMN_ADMIN_USERNAME = ? AND $COLUMN_ADMIN_PASSWORD = ?"
+        val selectionArgs = arrayOf(username, password)
+        val cursor = db.query(TABLE_ADMINS, null, selection, selectionArgs, null, null, null)
+        val isValid = cursor.count > 0
+        cursor.close()
+        return isValid
+    }
+
+
 
 }

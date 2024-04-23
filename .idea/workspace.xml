@@ -109,7 +109,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="start admin section" />
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="update main activity" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -617,7 +617,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713885836014</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="complete add admin">
+      <option name="closed" value="true" />
+      <created>1713886078712</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1713886078712</updated>
+    </task>
+    <task id="LOCAL-00044" summary="update main activity">
+      <option name="closed" value="true" />
+      <created>1713886154044</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1713886154044</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -632,8 +648,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modify add user interface" />
-    <MESSAGE value="admin card view" />
     <MESSAGE value="modify admin interface" />
     <MESSAGE value="home interface designed" />
     <MESSAGE value="modified add book" />
@@ -657,6 +671,8 @@
     <MESSAGE value="update home dashboard" />
     <MESSAGE value="update book return" />
     <MESSAGE value="start admin section" />
-    <option name="LAST_COMMIT_MESSAGE" value="start admin section" />
+    <MESSAGE value="complete add admin" />
+    <MESSAGE value="update main activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="update main activity" />
   </component>
 </project>

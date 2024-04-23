@@ -54,10 +54,9 @@ class SignUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val cancelButton: Button = findViewById(R.id.btnCancel)
+        val cancelButton: Button = findViewById(R.id.btnSignupCancel)
         cancelButton.setOnClickListener {
-            val intentLogin = Intent(this, LoginActivity::class.java)
-            startActivity(intentLogin)
+            finish()
         }
     }
 }

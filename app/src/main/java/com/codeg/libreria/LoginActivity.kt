@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,6 +42,11 @@ class LoginActivity : AppCompatActivity() {
         }
 
         checkLoginStatus()
+
+        val cancelButton: Button = findViewById(R.id.btnLoginCancel)
+        cancelButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun checkLoginStatus() {

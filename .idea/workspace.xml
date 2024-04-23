@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_admin.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_book.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -16,6 +21,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_user.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_book_return.xml">
         <config>
           <theme>@style/AppTheme</theme>
         </config>
@@ -65,6 +75,11 @@
           <theme>@style/AppTheme</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_admin.xml">
+        <config>
+          <theme>@style/AppTheme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/item_book.xml">
         <config>
           <theme>@style/AppTheme</theme>
@@ -94,7 +109,27 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="complete borrowing section" />
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="upload new icons">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddAdminActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AdminAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_admin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/Admin.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/Admin.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/BookReturnActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/BookReturnActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/HomeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/LibreriaDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/LibreriaDB.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_admin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_admin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +138,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[4200d6990673a400]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\laksh\.android\avd\Pixel_2_API_22.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -168,6 +203,15 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="android.template.823257082">
+      <recent name="com.codeg.libreria" />
+    </key>
+    <key name="android.template.-439921240">
+      <recent name="com.codeg.libreria" />
+    </key>
+    <key name="android.template.-195561169">
+      <recent name="com.codeg.libreria" />
+    </key>
     <key name="android.template.-242972892">
       <recent name="com.codeg.libreria" />
     </key>
@@ -186,13 +230,10 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\laksh\AndroidStudioProjects\Libreria\Libreria\app\src\main\res\drawable" />
     </key>
-    <key name="android.template.823257082">
-      <recent name="com.codeg.libreria" />
-    </key>
     <key name="android.template.-1596429775">
       <recent name="com.codeg.libreria" />
     </key>
-    <key name="android.template.-439921240">
+    <key name="android.template.1814480302">
       <recent name="com.codeg.libreria" />
     </key>
     <key name="android.template.-2083569299">
@@ -556,7 +597,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713721524269</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="add new function - book return">
+      <option name="closed" value="true" />
+      <created>1713868682633</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868682634</updated>
+    </task>
+    <task id="LOCAL-00039" summary="upload new icons">
+      <option name="closed" value="true" />
+      <created>1713868706767</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1713868706767</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -571,8 +628,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create all activities" />
-    <MESSAGE value="add button to add books" />
     <MESSAGE value="modification in home activity" />
     <MESSAGE value="design admin interface" />
     <MESSAGE value="design add book interface" />
@@ -596,6 +651,8 @@
     <MESSAGE value="start lending section" />
     <MESSAGE value="lending section - working" />
     <MESSAGE value="complete borrowing section" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete borrowing section" />
+    <MESSAGE value="add new function - book return" />
+    <MESSAGE value="upload new icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload new icons" />
   </component>
 </project>

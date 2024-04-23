@@ -46,6 +46,10 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
 
         // Define columns for Admins table
         const val COLUMN_ADMIN_ID = "admin_id"
+        const val COLUMN_ADMIN_NAME = "admin_name"
+        const val COLUMN_ADMIN_ADDRESS = "admin_address"
+        const val COLUMN_ADMIN_TELEPHONE = "admin_contact"
+        const val COLUMN_ADMIN_EMAIL = "admin_email"
         const val COLUMN_ADMIN_USERNAME = "admin_username"
         const val COLUMN_ADMIN_PASSWORD = "admin_password"
 
@@ -90,9 +94,14 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
             CREATE TABLE $TABLE_ADMINS (
                 $COLUMN_ADMIN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 $COLUMN_ADMIN_USERNAME TEXT,
-                $COLUMN_ADMIN_PASSWORD TEXT
-            )
-        """
+                $COLUMN_ADMIN_PASSWORD TEXT,
+                $COLUMN_ADMIN_NAME TEXT,
+                $COLUMN_ADMIN_ADDRESS TEXT,
+                $COLUMN_ADMIN_TELEPHONE TEXT,
+                $COLUMN_ADMIN_EMAIL TEXT
+    )
+"""
+
     }
 
     override fun onCreate(db: SQLiteDatabase) {
@@ -168,17 +177,6 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return stream.toByteArray()
     }
 
-
-    // Insert admin data into Admins table
-    fun insertAdminData(username: String, password: String) {
-        val values = ContentValues().apply {
-            put(COLUMN_ADMIN_USERNAME, username)
-            put(COLUMN_ADMIN_PASSWORD, password)
-        }
-
-        val db = writableDatabase
-        db.insert(TABLE_ADMINS, null, values)
-    }
 
     fun getAllBooks(): List<Book> {
         val books = mutableListOf<Book>()
@@ -360,5 +358,108 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         }
         return lendings
     }
+
+    fun updateReturnDate(userId: String, book1ISBN: String, book2ISBN: String?, returnDate: String) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_BORROWING_RETURN_DATE, returnDate)
+        }
+        val selection = "$COLUMN_BORROWING_USER_ID = ? AND $COLUMN_BORROWING_BOOK1 = ? AND $COLUMN_BORROWING_BOOK2 = ?"
+        val selectionArgs = arrayOf(userId, book1ISBN, book2ISBN ?: "")
+        db.update(TABLE_BORROWINGS, values, selection, selectionArgs)
+    }
+
+    // Calculate the total number of borrowed books
+    fun getTotalBorrowedBooks(): Int {
+        val lendings = getAllLendings()
+        var totalBorrowedBooks = 0
+        for (lending in lendings) {
+            // Increment total borrowed books by 1 for each book borrowed in the lending
+            totalBorrowedBooks += if (lending.book2ISBN != null) 2 else 1
+        }
+        return totalBorrowedBooks
+    }
+
+    // Calculate the number of successfully returned lendings
+    fun getReturnedLendingsCount(): Int {
+        val lendings = getAllLendings()
+        var successfullyReturnedCount = 0
+        for (lending in lendings) {
+            if (lending.returnDate != null) {
+                // Increment count if the lending has a return date
+                successfullyReturnedCount++
+            }
+        }
+        return successfullyReturnedCount
+    }
+
+    fun insertAdminData(
+        username: String,
+        password: String,
+        name: String,
+        address: String,
+        telephone: String,
+        email: String
+    ) {
+        val values = ContentValues().apply {
+            put(COLUMN_ADMIN_USERNAME, username)
+            put(COLUMN_ADMIN_PASSWORD, password)
+            put(COLUMN_ADMIN_NAME, name)
+            put(COLUMN_ADMIN_ADDRESS, address)
+            put(COLUMN_ADMIN_TELEPHONE, telephone)
+            put(COLUMN_ADMIN_EMAIL, email)
+        }
+
+        val db = writableDatabase
+        db.insert(TABLE_ADMINS, null, values)
+        db.close()
+    }
+
+    fun getAllAdmins(): List<Admin> {
+        val admins = mutableListOf<Admin>()
+        val db = readableDatabase
+        val cursor: Cursor? = db.rawQuery("SELECT * FROM $TABLE_ADMINS", null)
+        cursor?.use { cursor ->
+            val adminIdIndex = cursor.getColumnIndex(COLUMN_ADMIN_ID)
+            val usernameIndex = cursor.getColumnIndex(COLUMN_ADMIN_USERNAME)
+            val passwordIndex = cursor.getColumnIndex(COLUMN_ADMIN_PASSWORD)
+            val nameIndex = cursor.getColumnIndex(COLUMN_ADMIN_NAME)
+            val addressIndex = cursor.getColumnIndex(COLUMN_ADMIN_ADDRESS)
+            val telephoneIndex = cursor.getColumnIndex(COLUMN_ADMIN_TELEPHONE)
+            val emailIndex = cursor.getColumnIndex(COLUMN_ADMIN_EMAIL)
+
+            while (cursor.moveToNext()) {
+                val id = cursor.getInt(usernameIndex)
+                val username = cursor.getString(usernameIndex)
+                val password = cursor.getString(passwordIndex)
+                val name = cursor.getString(nameIndex)
+                val address = cursor.getString(addressIndex)
+                val telephone = cursor.getString(telephoneIndex)
+                val email = cursor.getString(emailIndex)
+
+                val admin = Admin(id,username, password, name, address, telephone, email)
+                admins.add(admin)
+            }
+        }
+        cursor?.close()
+        db.close()
+        return admins
+    }
+
+
+    fun getAdminsCount(): Int {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM $TABLE_ADMINS", null)
+        var count = 0
+        cursor?.use {
+            if (it.moveToFirst()) {
+                count = it.getInt(0)
+            }
+        }
+        cursor?.close()
+        db.close()
+        return count
+    }
+
 
 }

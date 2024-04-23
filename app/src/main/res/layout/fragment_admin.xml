@@ -49,7 +49,7 @@
                 android:text="Current Admin: " />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textViewCurrentAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="15sp"

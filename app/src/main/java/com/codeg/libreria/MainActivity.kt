@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun openFragment(fragment: androidx.fragment.app.Fragment){
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.mainFragment, fragment)

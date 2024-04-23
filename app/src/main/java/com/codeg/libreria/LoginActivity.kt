@@ -66,7 +66,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun logoutUser() {
-        sharedPreferences.edit().clear().apply() // Clear all shared preferences
+        // Clear all shared preferences
+        val editor = sharedPreferences.edit()
+        editor.remove("lastLoginTime")
+        editor.apply()
+
         showToast("Logged out from Libreria")
         // Perform any other logout tasks here if needed
     }

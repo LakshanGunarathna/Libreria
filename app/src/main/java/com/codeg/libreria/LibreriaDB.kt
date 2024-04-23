@@ -504,7 +504,4 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return admin
     }
 
-
-
-
 }

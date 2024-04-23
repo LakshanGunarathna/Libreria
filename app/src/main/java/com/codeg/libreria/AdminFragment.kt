@@ -2,6 +2,7 @@ package com.codeg.libreria
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -54,11 +55,12 @@ class AdminFragment : Fragment() {
         adminAdapter.submitList(admins)
     }
 
+
     private fun logout() {
         // Clear user session data
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.clear()
+        editor.remove("lastLoginTime")
         editor.apply()
 
         // Navigate to the LoginActivity
@@ -66,6 +68,8 @@ class AdminFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish() // Finish the MainActivity to prevent going back
     }
+
+
 
 
 }

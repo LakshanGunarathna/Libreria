@@ -471,6 +471,15 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return isValid
     }
 
+    fun adminsExist(): Boolean {
+        val db = readableDatabase
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM $TABLE_ADMINS", null)
+        cursor.moveToFirst()
+        val count = cursor.getInt(0)
+        cursor.close()
+        return count > 0
+    }
+
 
 
 }

@@ -27,6 +27,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">MainActivity2</string>
 
+    <string name="signup_phrase">Create Your First Admin Profile to \n Access the Libreria.</string>
+
     <string-array name="genre">
         <item>Select Category</item>
         <item>Fiction</item>

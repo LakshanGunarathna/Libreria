@@ -31,6 +31,15 @@ class LoginActivity : AppCompatActivity() {
         username = findViewById(R.id.editTxtUserName)
         password = findViewById(R.id.editTxtPassword)
 
+        // Check if there are any admins in the database
+        if (!db.adminsExist()) {
+            // No admins exist, navigate the user to create the admin account
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+            finish() // Finish the LoginActivity to prevent going back
+            return // Return to prevent further execution
+        }
+
         checkLoginStatus()
     }
 

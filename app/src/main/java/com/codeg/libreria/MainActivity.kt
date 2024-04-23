@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         // Open the appropriate fragment based on the extra passed in the intent
         when (fragmentToOpen) {
+
             "BooksFragment" -> {
                 openFragment(BooksFragment())
                 bottomNavigationView.selectedItemId = R.id.navigation_book // Select the "Book" icon
@@ -33,6 +34,11 @@ class MainActivity : AppCompatActivity() {
                 openFragment(LendingFragment())
                 bottomNavigationView.selectedItemId = R.id.navigation_lending // Select the "Lending" icon
             }
+            "AdminFragment" -> {
+                openFragment(AdminFragment())
+                bottomNavigationView.selectedItemId = R.id.navigation_admin // Select the "Book" icon
+            }
+
             else -> openFragment(HomeFragment()) // Default fragment
         }
 

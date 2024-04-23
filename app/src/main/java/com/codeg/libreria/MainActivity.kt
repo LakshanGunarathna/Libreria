@@ -2,6 +2,8 @@ package com.codeg.libreria
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
@@ -9,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
+    private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,5 +79,24 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.mainFragment, fragment)
         fragmentTransaction.addToBackStack(null)
         fragmentTransaction.commit()
+    }
+
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            openFragment(HomeFragment())
+            super.onBackPressed()
+            finish()
+            return
+        }
+
+        openFragment(HomeFragment())
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show()
+
+        // Reset the flag after a certain delay
+        Handler().postDelayed({
+            doubleBackToExitPressedOnce = false
+        }, 2000)
+
     }
 }

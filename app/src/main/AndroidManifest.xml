@@ -14,6 +14,9 @@
         android:taskAffinity=""
         android:theme="@style/AppTheme">
         <activity
+            android:name=".BookReturnActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddLendingActivity"
             android:exported="false" />
         <activity

@@ -13,6 +13,7 @@ class LendingFragment : Fragment() {
 
     private lateinit var db: LibreriaDB
     private lateinit var lendingAdapter: LendingAdapter
+    private lateinit var intent: Intent
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +34,12 @@ class LendingFragment : Fragment() {
         loadLendings()
 
         addLendingButton.setOnClickListener {
-            val intent = Intent(requireActivity(), AddLendingActivity::class.java)
+            intent = Intent(requireActivity(), AddLendingActivity::class.java)
+            startActivity(intent)
+        }
+
+        bookReturnButton.setOnClickListener {
+            intent = Intent(requireActivity(), BookReturnActivity::class.java)
             startActivity(intent)
         }
     }

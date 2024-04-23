@@ -39,6 +39,7 @@ class AddUserActivity : AppCompatActivity() {
         val emailInput: EditText = findViewById(R.id.editTxtEmail)
         val generateButton: Button = findViewById(R.id.generateButton)
         val addUserButton: Button = findViewById(R.id.btnAddUser)
+        val btnShare: Button = findViewById(R.id.btnShare)
 
         // Initialize the ImageView
         qrcodeImageView = findViewById(R.id.qrcodeImageView)
@@ -55,6 +56,7 @@ class AddUserActivity : AppCompatActivity() {
             generateQRCode(userId)
             // Enable the addUserButton
             addUserButton.visibility = Button.VISIBLE
+            btnShare.visibility = Button.VISIBLE
         }
 
         val cancelButton: Button = findViewById(R.id.btnCancel)

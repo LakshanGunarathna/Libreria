@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,11 +28,25 @@
                 android:textStyle="bold"
                 android:text="Lending" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/addLendingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add" />
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:padding="4sp"
+                android:scaleType="fitCenter"
+                android:background="@color/blue"
+                android:src="@drawable/add_icon" />
+
+            <ImageButton
+                android:id="@+id/bookReturnButton"
+                android:layout_width="35sp"
+                android:layout_height="35sp"
+                android:padding="4sp"
+                android:scaleType="fitCenter"
+                android:layout_marginLeft="15sp"
+                android:background="@color/blue"
+                android:src="@drawable/return_icon" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

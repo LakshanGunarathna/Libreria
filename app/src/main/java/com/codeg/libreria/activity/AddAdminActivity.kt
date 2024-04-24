@@ -1,21 +1,13 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatWriter
-import com.google.zxing.WriterException
-import com.google.zxing.common.BitMatrix
-import java.io.ByteArrayOutputStream
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 
 class AddAdminActivity : AppCompatActivity() {
 

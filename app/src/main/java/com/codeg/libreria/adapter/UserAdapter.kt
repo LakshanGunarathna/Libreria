@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.codeg.libreria.R
+import com.codeg.libreria.classfile.User
 
 class UserAdapter : ListAdapter<User, UserAdapter.UserViewHolder>(UserDiffCallback()) {
 

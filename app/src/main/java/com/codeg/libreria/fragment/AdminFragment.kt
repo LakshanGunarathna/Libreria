@@ -1,15 +1,18 @@
-package com.codeg.libreria
+package com.codeg.libreria.fragment
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
+import com.codeg.libreria.activity.AddAdminActivity
+import com.codeg.libreria.activity.LoginActivity
+import com.codeg.libreria.adapter.AdminAdapter
 import kotlinx.android.synthetic.main.fragment_admin.*
 
 class AdminFragment : Fragment() {

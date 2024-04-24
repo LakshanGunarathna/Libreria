@@ -1,6 +1,5 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +7,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
+import com.codeg.libreria.assest.CodeScanner
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date

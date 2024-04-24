@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.assest
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.widget.Toast
+import com.codeg.libreria.classfile.Admin
+import com.codeg.libreria.classfile.Book
+import com.codeg.libreria.classfile.Lending
+import com.codeg.libreria.classfile.User
 import java.io.ByteArrayOutputStream
 import java.util.Locale
 

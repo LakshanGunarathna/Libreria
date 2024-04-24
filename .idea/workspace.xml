@@ -114,16 +114,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="book return modification">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="fragment padding changes">
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddUserActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/AddUserActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_user.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -456,22 +448,6 @@
       <option name="project" value="LOCAL" />
       <updated>1709015582994</updated>
     </task>
-    <task id="LOCAL-00027" summary="update books section">
-      <option name="closed" value="true" />
-      <created>1712761810859</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1712761810859</updated>
-    </task>
-    <task id="LOCAL-00028" summary="change nav menu">
-      <option name="closed" value="true" />
-      <created>1712761822740</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1712761822740</updated>
-    </task>
     <task id="LOCAL-00029" summary="auto logout function">
       <option name="closed" value="true" />
       <created>1712761840096</created>
@@ -688,7 +664,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713950441348</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="btn visibility changes">
+      <option name="closed" value="true" />
+      <created>1713952575899</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1713952575899</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fragment padding changes">
+      <option name="closed" value="true" />
+      <created>1713952603775</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1713952603775</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -703,8 +695,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="book section finished" />
-    <MESSAGE value="small modifications" />
     <MESSAGE value="user section upgrade" />
     <MESSAGE value="user section finished" />
     <MESSAGE value="start lending section" />
@@ -728,6 +718,8 @@
     <MESSAGE value="login, signup ui changes" />
     <MESSAGE value="small ui changes" />
     <MESSAGE value="book return modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="book return modification" />
+    <MESSAGE value="btn visibility changes" />
+    <MESSAGE value="fragment padding changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fragment padding changes" />
   </component>
 </project>

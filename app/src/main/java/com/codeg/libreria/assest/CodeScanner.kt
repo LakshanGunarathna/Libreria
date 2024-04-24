@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.assest
 
 import android.app.Activity
 import android.content.pm.PackageManager

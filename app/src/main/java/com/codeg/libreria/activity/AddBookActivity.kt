@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_add_book.editTxtNoCopies
+import com.codeg.libreria.assest.CodeScanner
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 
 class AddBookActivity : AppCompatActivity() {
 

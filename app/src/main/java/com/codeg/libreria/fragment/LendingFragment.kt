@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
+import com.codeg.libreria.activity.AddLendingActivity
+import com.codeg.libreria.activity.BookReturnActivity
+import com.codeg.libreria.adapter.LendingAdapter
 import kotlinx.android.synthetic.main.fragment_lending.*
 
 class LendingFragment : Fragment() {

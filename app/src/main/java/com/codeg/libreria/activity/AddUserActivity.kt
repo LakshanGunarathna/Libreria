@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
 import android.content.Intent
 import android.graphics.Bitmap
@@ -12,12 +12,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
 import java.io.ByteArrayOutputStream
-import java.util.*
 
 class AddUserActivity : AppCompatActivity() {
 

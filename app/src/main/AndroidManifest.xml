@@ -14,28 +14,28 @@
         android:taskAffinity=""
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".AddAdminActivity"
+            android:name=".activity.AddAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".BookReturnActivity"
+            android:name=".activity.BookReturnActivity"
             android:exported="false" />
         <activity
-            android:name=".AddLendingActivity"
+            android:name=".activity.AddLendingActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".AddUserActivity"
+            android:name=".activity.AddUserActivity"
             android:exported="false" />
         <activity
-            android:name=".AddBookActivity"
+            android:name=".activity.AddBookActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".WelcomeActivity"

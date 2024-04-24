@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.classfile
 
 data class Admin(
     val id: Int,

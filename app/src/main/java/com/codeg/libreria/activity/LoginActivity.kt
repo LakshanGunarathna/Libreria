@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
 import android.content.Context
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 
 class LoginActivity : AppCompatActivity() {
 

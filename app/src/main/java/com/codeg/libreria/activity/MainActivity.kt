@@ -1,12 +1,17 @@
-package com.codeg.libreria
+package com.codeg.libreria.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
+import com.codeg.libreria.fragment.AdminFragment
+import com.codeg.libreria.fragment.BooksFragment
+import com.codeg.libreria.fragment.HomeFragment
+import com.codeg.libreria.fragment.LendingFragment
+import com.codeg.libreria.R
+import com.codeg.libreria.fragment.UserFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,11 +40,13 @@ class MainActivity : AppCompatActivity() {
             }
             "LendingFragment" -> {
                 openFragment(LendingFragment())
-                bottomNavigationView.selectedItemId = R.id.navigation_lending // Select the "Lending" icon
+                bottomNavigationView.selectedItemId =
+                    R.id.navigation_lending // Select the "Lending" icon
             }
             "AdminFragment" -> {
                 openFragment(AdminFragment())
-                bottomNavigationView.selectedItemId = R.id.navigation_admin // Select the "Book" icon
+                bottomNavigationView.selectedItemId =
+                    R.id.navigation_admin // Select the "Book" icon
             }
 
             else -> openFragment(HomeFragment()) // Default fragment

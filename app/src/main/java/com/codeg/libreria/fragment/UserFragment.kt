@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
+import com.codeg.libreria.activity.AddUserActivity
+import com.codeg.libreria.adapter.UserAdapter
 import kotlinx.android.synthetic.main.fragment_user.addUserButton
 import kotlinx.android.synthetic.main.fragment_user.recyclerViewUser
-import kotlinx.android.synthetic.main.fragment_user.*
 
 class UserFragment : Fragment() {
 

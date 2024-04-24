@@ -1,4 +1,4 @@
-package com.codeg.libreria
+package com.codeg.libreria.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.codeg.libreria.R
+import com.codeg.libreria.classfile.Lending
 import java.text.SimpleDateFormat
 import java.util.*
 

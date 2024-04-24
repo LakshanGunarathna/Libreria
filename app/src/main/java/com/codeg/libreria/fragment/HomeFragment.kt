@@ -1,10 +1,12 @@
-package com.codeg.libreria
+package com.codeg.libreria.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.codeg.libreria.assest.LibreriaDB
+import com.codeg.libreria.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.text.SimpleDateFormat
 import java.util.Calendar

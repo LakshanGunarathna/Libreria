@@ -31,7 +31,7 @@ class AddUserActivity : AppCompatActivity() {
 
         db = LibreriaDB(this)
 
-        val userIDInput: EditText = findViewById(R.id.editTxtUserId)
+        val userIDInput: TextView = findViewById(R.id.editTxtUserId)
         val txtUserId: TextView = findViewById(R.id.txtUserId)
         val nameInput: EditText = findViewById(R.id.editTxtName)
         val addressInput: EditText = findViewById(R.id.editTxtAddress)
@@ -48,8 +48,8 @@ class AddUserActivity : AppCompatActivity() {
             // Generate a new user ID
             val userId = db.generateNextUserId()
             // Set the generated user ID in the name input field
-            userIDInput.setText(userId)
-            userIDInput.visibility = EditText.VISIBLE
+            userIDInput.text = userId
+            userIDInput.visibility = TextView.VISIBLE
             txtUserId.visibility = TextView.VISIBLE
 
             // Generate QR code logic
@@ -57,6 +57,7 @@ class AddUserActivity : AppCompatActivity() {
             // Enable the addUserButton
             addUserButton.visibility = Button.VISIBLE
             btnShare.visibility = Button.VISIBLE
+            generateButton.visibility= Button.GONE
         }
 
         val cancelButton: Button = findViewById(R.id.btnCancel)

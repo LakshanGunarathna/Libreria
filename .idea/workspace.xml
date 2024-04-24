@@ -114,8 +114,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="fragment padding changes">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +219,13 @@
     </key>
     <key name="android.template.-1596429775">
       <recent name="com.codeg.libreria" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.codeg.libreria.assest" />
+      <recent name="com.codeg.libreria.fragment" />
+      <recent name="com.codeg.libreria.adapter" />
+      <recent name="com.codeg.libreria.activity" />
+      <recent name="com.codeg.libreria.classfile" />
     </key>
     <key name="android.template.1814480302">
       <recent name="com.codeg.libreria" />
@@ -448,14 +455,6 @@
       <option name="project" value="LOCAL" />
       <updated>1709015582994</updated>
     </task>
-    <task id="LOCAL-00029" summary="auto logout function">
-      <option name="closed" value="true" />
-      <created>1712761840096</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1712761840096</updated>
-    </task>
     <task id="LOCAL-00030" summary="home fragment update">
       <option name="closed" value="true" />
       <created>1712761858249</created>
@@ -680,7 +679,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713952603775</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="changed folder structure">
+      <option name="closed" value="true" />
+      <created>1713953145632</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1713953145632</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -695,7 +702,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user section upgrade" />
     <MESSAGE value="user section finished" />
     <MESSAGE value="start lending section" />
     <MESSAGE value="lending section - working" />
@@ -720,6 +726,7 @@
     <MESSAGE value="book return modification" />
     <MESSAGE value="btn visibility changes" />
     <MESSAGE value="fragment padding changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fragment padding changes" />
+    <MESSAGE value="changed folder structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed folder structure" />
   </component>
 </project>

@@ -52,6 +52,7 @@ class SignUpActivity : AppCompatActivity() {
             // Redirect to the MainActivity and open the BooksFragment
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         val cancelButton: Button = findViewById(R.id.btnSignupCancel)

@@ -145,7 +145,7 @@
                     android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Username:" />
+                    android:text="UserName:" />
 
                 <EditText
                     android:id="@+id/editTxtUserName"

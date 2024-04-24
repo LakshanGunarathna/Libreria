@@ -46,18 +46,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:layout_weight="1"
                 android:text="Current Admin: " />
 
             <TextView
                 android:id="@+id/textViewCurrentAdmin"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="15sp"
+                android:layout_marginLeft="10sp"
                 android:textStyle="bold"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="center|left"
                 android:text="TextView" />
 
             <Button

@@ -47,7 +47,7 @@ class AdminFragment : Fragment() {
 
         // Set the current admin name to the TextView
         val currentAdmin = db.getCurrentAdmin()
-        textViewCurrentAdmin.text = currentAdmin?.username ?: "No admin logged in"
+        textViewCurrentAdmin.text = currentAdmin?.name ?: "No admin logged in"
     }
 
     private fun loadAdmins() {

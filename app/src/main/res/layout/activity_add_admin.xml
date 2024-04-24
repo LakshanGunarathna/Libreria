@@ -40,7 +40,7 @@
 
                 <TextView
                     android:id="@+id/txtTitle"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Name:" />
@@ -62,7 +62,7 @@
 
                 <TextView
                     android:id="@+id/txtAddress"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Address:" />
@@ -84,7 +84,7 @@
 
                 <TextView
                     android:id="@+id/txtTelNo"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Tel No:" />
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="phone" />
+                    android:inputType="number|phone" />
 
             </LinearLayout>
 
@@ -108,7 +108,7 @@
 
                 <TextView
                     android:id="@+id/txtEmail"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Email:" />
@@ -132,10 +132,10 @@
 
                 <TextView
                     android:id="@+id/txtuname"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="User Name:" />
+                    android:text="UserName:" />
 
                 <EditText
                     android:id="@+id/editTxtUserName"
@@ -156,10 +156,10 @@
 
                 <TextView
                     android:id="@+id/txtpass"
-                    android:layout_width="20sp"
+                    android:layout_width="50sp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Password" />
+                    android:text="Password:" />
 
                 <EditText
                     android:id="@+id/editTxtPassword"

@@ -31,6 +31,7 @@ class BookReturnActivity : AppCompatActivity() {
         setContentView(R.layout.activity_book_return)
 
         db = LibreriaDB(this)
+        codeScanner = CodeScanner(this)
 
         editTxtUserID = findViewById(R.id.editTxtUserId)
         editTxtBook1 = findViewById(R.id.editTxtISBNBook1)

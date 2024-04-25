@@ -95,8 +95,19 @@ class AddLendingActivity : AppCompatActivity() {
         val book1 = editTxtBook1.text.toString()
         val book2 = editTxtBook2.text.toString()
 
-        if (userID.isEmpty() || book1.isEmpty()) {
-            showToast("Please fill in all fields")
+        // Check if user ID and book ISBNs exist in the database
+        if (!isUserExists(userID)) {
+            showToast("User ID not found")
+            return
+        }
+
+        if (!isBookExists(book1)) {
+            showToast("Book 1 ISBN not found")
+            return
+        }
+
+        if (!book2.isEmpty() && !isBookExists(book2)) {
+            showToast("Book 2 ISBN not found")
             return
         }
 
@@ -118,6 +129,17 @@ class AddLendingActivity : AppCompatActivity() {
         // Finish the current activity
         finish()
     }
+
+    private fun isUserExists(userID: String): Boolean {
+        // Query the database to check if the user ID exists
+        return db.getAllUsers().any { it.userId == userID }
+    }
+
+    private fun isBookExists(isbn: String): Boolean {
+        // Query the database to check if the book ISBN exists
+        return db.getAllBooks().any { it.isbn == isbn }
+    }
+
 
     private fun getCurrentDateTime(): String {
         val calendar = Calendar.getInstance()

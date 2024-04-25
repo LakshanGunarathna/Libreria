@@ -62,23 +62,21 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginSuccess() {
-        sharedPreferences.edit().putLong("lastLoginTime", System.currentTimeMillis()).apply()
-        navigateToMainActivity()
-    }
-
     private fun navigateToMainActivity() {
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    private fun logoutUser() {
-        // Clear all shared preferences
-        val editor = sharedPreferences.edit()
-        editor.remove("lastLoginTime")
-        editor.apply()
+    private fun loginSuccess(adminId: Int) {
+        sharedPreferences.edit().putInt("currentAdminId", adminId).apply()
+        sharedPreferences.edit().putLong("lastLoginTime", System.currentTimeMillis()).apply()
+        navigateToMainActivity()
+    }
 
+    private fun logoutUser() {
+        sharedPreferences.edit().remove("currentAdminId").apply()
+        sharedPreferences.edit().remove("lastLoginTime").apply()
         showToast("Logged out from Libreria")
         // Perform any other logout tasks here if needed
     }
@@ -102,8 +100,9 @@ class LoginActivity : AppCompatActivity() {
         val enteredPassword = password.text.toString()
 
         // Check if the entered credentials match any admin in the database
-        if (db.isAdminValid(enteredUsername, enteredPassword)) {
-            loginSuccess()
+        val admin = db.getAdminByUsernameAndPassword(enteredUsername, enteredPassword)
+        if (admin != null) {
+            loginSuccess(admin.id) // Pass the admin ID to loginSuccess
         } else {
             showToast("Invalid username or password")
         }

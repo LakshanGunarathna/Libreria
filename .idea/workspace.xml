@@ -109,14 +109,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="bookReturn error fixed">
+    <list default="true" id="5565a562-18d1-46ba-a308-b2b88b1e0f12" name="Changes" comment="add lending validation">
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/activity/LoginActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/activity/LoginActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/assest/LibreriaDB.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/assest/LibreriaDB.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/fragment/AdminFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/codeg/libreria/fragment/AdminFragment.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -456,14 +460,6 @@
       <option name="project" value="LOCAL" />
       <updated>1709015582994</updated>
     </task>
-    <task id="LOCAL-00032" summary="small modifications">
-      <option name="closed" value="true" />
-      <created>1713106185095</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1713106185095</updated>
-    </task>
     <task id="LOCAL-00033" summary="user section upgrade">
       <option name="closed" value="true" />
       <created>1713253006246</created>
@@ -688,7 +684,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713957719988</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="add lending validation">
+      <option name="closed" value="true" />
+      <created>1714030005095</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1714030005096</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -703,7 +707,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="lending section - working" />
     <MESSAGE value="complete borrowing section" />
     <MESSAGE value="add new function - book return" />
     <MESSAGE value="upload new icons" />
@@ -728,6 +731,7 @@
     <MESSAGE value="changed folder structure" />
     <MESSAGE value="WelcomeActivity content change" />
     <MESSAGE value="bookReturn error fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="bookReturn error fixed" />
+    <MESSAGE value="add lending validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add lending validation" />
   </component>
 </project>

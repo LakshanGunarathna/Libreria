@@ -465,15 +465,28 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return count
     }
 
-    fun isAdminValid(username: String, password: String): Boolean {
+    fun getAdminByUsernameAndPassword(username: String, password: String): Admin? {
         val db = readableDatabase
         val selection = "$COLUMN_ADMIN_USERNAME = ? AND $COLUMN_ADMIN_PASSWORD = ?"
         val selectionArgs = arrayOf(username, password)
         val cursor = db.query(TABLE_ADMINS, null, selection, selectionArgs, null, null, null)
-        val isValid = cursor.count > 0
-        cursor.close()
-        return isValid
+        var admin: Admin? = null
+
+        if (cursor != null && cursor.moveToFirst()) {
+            val id = cursor.getInt(cursor.getColumnIndex(COLUMN_ADMIN_ID))
+            val name = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_NAME))
+            val address = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_ADDRESS))
+            val telephone = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_TELEPHONE))
+            val email = cursor.getString(cursor.getColumnIndex(COLUMN_ADMIN_EMAIL))
+
+            admin = Admin(id, username, password, name, address, telephone, email)
+        }
+
+        cursor?.close()
+        db.close()
+        return admin
     }
+
 
     fun adminsExist(): Boolean {
         val db = readableDatabase
@@ -484,10 +497,10 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return count > 0
     }
     @SuppressLint("Range")
-    fun getCurrentAdmin(): Admin? {
+    fun getAdminById(adminId: Int): Admin? {
         val db = readableDatabase
         val selection = "$COLUMN_ADMIN_ID = ?"
-        val selectionArgs = arrayOf("1") // Assuming the admin ID is always 1
+        val selectionArgs = arrayOf(adminId.toString())
         val cursor = db.query(TABLE_ADMINS, null, selection, selectionArgs, null, null, null)
         var admin: Admin? = null
 
@@ -507,5 +520,6 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         db.close()
         return admin
     }
+
 
 }

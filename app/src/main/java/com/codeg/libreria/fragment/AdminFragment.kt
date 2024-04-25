@@ -2,6 +2,7 @@ package com.codeg.libreria.fragment
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +20,7 @@ class AdminFragment : Fragment() {
 
     private lateinit var db: LibreriaDB
     private lateinit var adminAdapter: AdminAdapter
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,12 +33,14 @@ class AdminFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         db = LibreriaDB(requireContext())
+        sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
         recyclerViewAdmin.layoutManager = LinearLayoutManager(requireContext())
         adminAdapter = AdminAdapter()
         recyclerViewAdmin.adapter = adminAdapter
 
         loadAdmins()
+        loadCurrentAdmin()
 
         addAdminButton.setOnClickListener {
             // Open the activity to add a new admin
@@ -47,10 +51,6 @@ class AdminFragment : Fragment() {
         btnLogout.setOnClickListener {
             logout()
         }
-
-        // Set the current admin name to the TextView
-        val currentAdmin = db.getCurrentAdmin()
-        textViewCurrentAdmin.text = currentAdmin?.name ?: "No admin logged in"
     }
 
     private fun loadAdmins() {
@@ -58,12 +58,21 @@ class AdminFragment : Fragment() {
         adminAdapter.submitList(admins)
     }
 
+    private fun loadCurrentAdmin() {
+        val currentAdminId = sharedPreferences.getInt("currentAdminId", -1)
+        if (currentAdminId != -1) {
+            val currentAdmin = db.getAdminById(currentAdminId)
+            textViewCurrentAdmin.text = currentAdmin?.name ?: "No admin logged in"
+        } else {
+            textViewCurrentAdmin.text = "No admin logged in"
+        }
+    }
 
     private fun logout() {
         // Clear user session data
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.remove("lastLoginTime")
+        editor.remove("currentAdminId")
         editor.apply()
 
         // Navigate to the LoginActivity
@@ -71,8 +80,4 @@ class AdminFragment : Fragment() {
         startActivity(intent)
         requireActivity().finish() // Finish the MainActivity to prevent going back
     }
-
-
-
-
 }

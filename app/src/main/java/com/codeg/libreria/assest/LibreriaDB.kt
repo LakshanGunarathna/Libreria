@@ -392,11 +392,15 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         val lendings = getAllLendings()
         var totalBorrowedBooks = 0
         for (lending in lendings) {
-            // Increment total borrowed books by 1 for each book borrowed in the lending
-            totalBorrowedBooks += if (lending.book2ISBN != null) 2 else 1
+            // Check if the lending has been returned
+            if (lending.returnDate == null) {
+                // Increment total borrowed books by 1 for each book borrowed in the lending
+                totalBorrowedBooks += if (lending.book2ISBN != null) 2 else 1
+            }
         }
         return totalBorrowedBooks
     }
+
 
     // Calculate the number of successfully returned lendings
     fun getReturnedLendingsCount(): Int {

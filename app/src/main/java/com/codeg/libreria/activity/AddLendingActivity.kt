@@ -118,7 +118,12 @@ class AddLendingActivity : AppCompatActivity() {
         val dueDate = getDueDate(borrowingDate)
 
         // Insert lending data into the database
-        db.insertBorrowingData(userID, book1, book2, borrowingDate, dueDate, null)
+        if (!book2.isEmpty()){
+            db.insertBorrowingData(userID, book1, book2, borrowingDate, dueDate, null)
+        }
+        else{
+            db.insertBorrowingData(userID, book1, null, borrowingDate, dueDate, null)
+        }
 
         // Redirect to the MainActivity and open the LendingFragment
         val intent = Intent(this, MainActivity::class.java).apply {

@@ -363,15 +363,29 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return lendings
     }
 
+    // Assuming this function is inside your LibreriaDB class
+
     fun updateReturnDate(userId: String, book1ISBN: String, book2ISBN: String?, returnDate: String) {
         val db = writableDatabase
+
+        // Check both combinations of book ISBNs
         val values = ContentValues().apply {
             put(COLUMN_BORROWING_RETURN_DATE, returnDate)
         }
-        val selection = "$COLUMN_BORROWING_USER_ID = ? AND $COLUMN_BORROWING_BOOK1 = ? AND $COLUMN_BORROWING_BOOK2 = ?"
-        val selectionArgs = arrayOf(userId, book1ISBN, book2ISBN ?: "")
-        db.update(TABLE_BORROWINGS, values, selection, selectionArgs)
+
+        val selection1 = "$COLUMN_BORROWING_USER_ID = ? AND $COLUMN_BORROWING_BOOK1 = ? AND $COLUMN_BORROWING_BOOK2 = ?"
+        val selectionArgs1 = arrayOf(userId, book1ISBN, book2ISBN ?: "")
+
+        val selection2 = "$COLUMN_BORROWING_USER_ID = ? AND $COLUMN_BORROWING_BOOK1 = ? AND $COLUMN_BORROWING_BOOK2 = ?"
+        val selectionArgs2 = arrayOf(userId, book2ISBN ?: "", book1ISBN)
+
+        // Update return date if found in either combination
+        if (db.update(TABLE_BORROWINGS, values, selection1, selectionArgs1) == 0) {
+            db.update(TABLE_BORROWINGS, values, selection2, selectionArgs2)
+        }
     }
+
+
 
     // Calculate the total number of borrowed books
     fun getTotalBorrowedBooks(): Int {
@@ -465,6 +479,7 @@ class LibreriaDB(context: Context) : SQLiteOpenHelper(context, "libreria_db", nu
         return count
     }
 
+    @SuppressLint("Range")
     fun getAdminByUsernameAndPassword(username: String, password: String): Admin? {
         val db = readableDatabase
         val selection = "$COLUMN_ADMIN_USERNAME = ? AND $COLUMN_ADMIN_PASSWORD = ?"

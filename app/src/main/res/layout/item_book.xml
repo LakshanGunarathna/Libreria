@@ -38,8 +38,8 @@
                 android:id="@+id/txtViewTitle"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -59,8 +59,8 @@
                 android:id="@+id/txtViewAuthor"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -80,8 +80,8 @@
                 android:id="@+id/txtViewIsbn"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -101,8 +101,8 @@
                 android:id="@+id/txtViewGenre"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -122,10 +122,19 @@
                 android:id="@+id/txtViewNoCopies"
                 android:layout_width="150sp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageBtnDialog"
+        android:layout_width="25sp"
+        android:layout_height="35sp"
+        android:scaleType="centerCrop"
+        android:background="@color/white"
+        app:srcCompat="@drawable/menu_icon" />
+
 
 </LinearLayout>

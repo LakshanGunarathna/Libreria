@@ -1,5 +1,6 @@
 package com.codeg.libreria.activity
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
@@ -16,6 +17,7 @@ import com.codeg.libreria.fragment.UserFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var sharedPreferences: SharedPreferences
     private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bottomNavigationView = findViewById(R.id.nav_view)
+
+        sharedPreferences.edit().putLong("lastLoginTime", System.currentTimeMillis()).apply()
 
         // Check if the intent has an extra to determine which fragment to open
         val fragmentToOpen = intent.getStringExtra("fragmentToOpen")

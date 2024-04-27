@@ -81,9 +81,11 @@
                     android:layout_width="35sp"
                     android:layout_height="35sp"
                     android:layout_marginLeft="20sp"
-                    android:background="@color/darkBlue"
                     android:onClick="onScanButtonClicked"
-                    app:srcCompat="@drawable/qr_code" />
+                    android:scaleType="fitCenter"
+                    android:padding="2sp"
+                    android:background="@color/darkBlue"
+                    app:srcCompat="@drawable/qr_icon" />
 
             </LinearLayout>
 

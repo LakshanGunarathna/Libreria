@@ -1,5 +1,6 @@
 package com.codeg.libreria.activity
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         bottomNavigationView = findViewById(R.id.nav_view)
 
+        sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         sharedPreferences.edit().putLong("lastLoginTime", System.currentTimeMillis()).apply()
 
         // Check if the intent has an extra to determine which fragment to open

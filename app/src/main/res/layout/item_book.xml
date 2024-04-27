@@ -29,7 +29,7 @@
 
             <TextView
                 android:id="@+id/txtTitle"
-                android:layout_width="50sp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/title" />
@@ -50,7 +50,7 @@
 
             <TextView
                 android:id="@+id/txtAuthor"
-                android:layout_width="50sp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/author" />
@@ -71,7 +71,7 @@
 
             <TextView
                 android:id="@+id/txtIsbn"
-                android:layout_width="50sp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/isbn" />
@@ -92,7 +92,7 @@
 
             <TextView
                 android:id="@+id/txtGenre"
-                android:layout_width="50sp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/genre" />
@@ -113,7 +113,7 @@
 
             <TextView
                 android:id="@+id/txtNoCopies"
-                android:layout_width="50sp"
+                android:layout_width="70sp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="# Copies:" />
@@ -131,7 +131,7 @@
     <ImageButton
         android:id="@+id/imageBtnDialog"
         android:layout_width="25sp"
-        android:layout_height="35sp"
+        android:layout_height="30sp"
         android:scaleType="centerCrop"
         android:background="@color/white"
         app:srcCompat="@drawable/menu_icon" />
